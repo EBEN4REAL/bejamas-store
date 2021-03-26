@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom'
 
 const  SIGNUP_MUTATION = gql `
     mutation signup($name: String, $email: String!, $password: String!){
-        signup(name: $name, email: $email!, password: $password) {
+        signup(name: $name, email: $email, password: $password) {
             token
         }
     }
@@ -31,8 +31,15 @@ const Signup = () => {
         name: ''
     }
     const validationSchema = Yup.object({
-        email: Yup.string().email('Invalid email').required("Email Required")
+        email: Yup.string().email('Invalid email').required("Email Required"),
+        password: Yup.string().max(20, "Must be 20 characters or less").required("Password Required"),
+        confirmPassword: Yup.string().oneOf(
+            [Yup.ref('password'), null], "Passwords must match"
+        ),
+        name: Yup.string().max(15, "Must be 15 characters or less").required("Name Required")
     })
+
+   
     return (
         <div>
             <h1>Signup</h1>
