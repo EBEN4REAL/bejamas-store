@@ -34,7 +34,7 @@ const Signup = () => {
         email: Yup.string().email('Invalid email').required("Email Required"),
         password: Yup.string().max(20, "Must be 20 characters or less").required("Password Required"),
         confirmPassword: Yup.string().oneOf(
-            [Yup.ref('password'), null], "Passwords must match"
+            [Yup.ref('password')], "Passwords must match"
         ),
         name: Yup.string().max(15, "Must be 15 characters or less").required("Name Required")
     })
@@ -51,8 +51,7 @@ const Signup = () => {
                     const response = await signup ({
                         variables: values
                     })
-                    localStorage.setItem('token', response.data.signup.token
-                    )
+                    localStorage.setItem('token', response.data.signup.token)
                     setSubmitting(false)
                     history.push('/users')
                 }}>
@@ -61,9 +60,9 @@ const Signup = () => {
                     <Field name="email" type="text" placeholder="Email"></Field>
                     <ErrorMessage name="email" component={'div'}></ErrorMessage>
                     <Field name="name" type="text" placeholder="Name"></Field>
-                    <ErrorMessage name="email" component={'div'}></ErrorMessage>
-                    <Field name="pasword" type="password" placeholder="Password"></Field>
-                    <ErrorMessage name="email" component={'div'}></ErrorMessage>
+                    <ErrorMessage name="name" component={'div'}></ErrorMessage>
+                    <Field name="password" type="password" placeholder="Password"></Field>
+                    <ErrorMessage name="password" component={'div'}></ErrorMessage>
                     <Field name="confirmPassword" type="password" placeholder="Confirm Password"></Field>
                     <ErrorMessage name="confirmPassword" component={'div'}></ErrorMessage>
                     <button type="submit">Signup</button>
