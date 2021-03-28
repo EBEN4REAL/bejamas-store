@@ -3,7 +3,7 @@ import {gql, useQuery} from "@apollo/client"
 import { Redirect } from 'react-router'
 
 const IS_LOGGED_IN_QUERY  = gql `
-  query IS_LOGGED_IN_QUERY {
+    {
         me {
             id
         }

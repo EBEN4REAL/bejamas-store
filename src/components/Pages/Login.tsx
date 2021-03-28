@@ -43,7 +43,6 @@ const Login = () => {
                     const response = await signup ({
                         variables: values
                     })
-                    console.log(response)
                     localStorage.setItem('token', response.data.login.token)
                     setSubmitting(false)
                     history.push('/users')

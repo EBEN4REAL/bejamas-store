@@ -23,7 +23,6 @@ const authLink = setContext(async(req, {headers}) => {
 })
 
 const link = authLink.concat(httpLink as  any)
-console.log(link)
 const client = new ApolloClient({
   link: link as any,
   cache: new InMemoryCache()
@@ -37,6 +36,9 @@ function App() {
           <Route path="/" exact>
             <Users />
           </Route>
+          <Route path="/login" exact>
+            <Login />
+          </Route>
           <Route path="/landing" exact>
             <Landing />
           </Route>
@@ -48,9 +50,6 @@ function App() {
               <Users />
             </Route>
           </IsAuthenticated>
-          <Route path="/login" exact>
-            <Login />
-          </Route>
         </Switch>
       </BrowserRouter>
     </ApolloProvider>
