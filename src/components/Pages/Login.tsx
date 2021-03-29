@@ -36,7 +36,7 @@ const Login = () => {
    
     return (
         <div>
-            <img src={Logo} width="70" />
+            <img src={Logo} width="70" className="logo" />
             <h3>Login</h3>
             <Formik
                 initialValues={initialValues}
