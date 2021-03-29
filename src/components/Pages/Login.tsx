@@ -37,7 +37,7 @@ const Login = () => {
     return (
         <div>
             <img src={Logo} width="70" className="logo" />
-            <h3>Login</h3>
+            <h3>Login to Twitter</h3>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}

@@ -18,23 +18,22 @@ form {
 
 input {
     color: rgb(18,50,56);
-    font-weight: 600;
     font-size: 16px;
     letter-spacing: 1px;
     border-color: var(---main-color);
     padding: 10px 20px;
     border: none;
-    border-radius: 20px;
+    border-radius: 26px;
     outline: none;
     box-sizing: border-box;
     border: 2px solid rgb(0,0,0,0.2);
-    text-align: center;
     margin-bottom: 27px;
+    min-height: 48px;
 }
 h3 {
     font-weight: bold;
     font-size: 20px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .login-button {
@@ -62,6 +61,8 @@ button {
     border: 0;
     color: #fff;
     font-weight: bold;
+    padding: 10px  35px 10px 35px;
+    min-height: 48px;
 }
 button span {
     display: block;
