@@ -35,9 +35,9 @@ const Login = () => {
 
    
     return (
-        <div>
-            <img src={Logo} width="70" className="logo" />
-            <h3>Login to Twitter</h3>
+        <div className="login-sign-up-container">
+            <img src={Logo} width="50" className="" />
+            <h2>Login to Twitter</h2>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -58,7 +58,6 @@ const Login = () => {
                     <ErrorMessage name="password" component={'div'}></ErrorMessage>
                     <button type="submit" className="login-button">Login</button>
                 </Form>
-
             </Formik>
             <div className="register">
                 <h4>Don't have an account?</h4>

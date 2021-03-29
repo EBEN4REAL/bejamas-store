@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import Users from './components/Users';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Landing from './components/Landing';
+import Landing from './components/LandingPage';
 import {setContext} from "apollo-link-context"
 import Signup from './components/Pages/Signup';
 import Login from './components/Pages/Login';

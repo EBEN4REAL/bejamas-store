@@ -4,6 +4,8 @@ import {ErrorMessage, Field, Form, Formik} from 'formik'
 import * as Yup from 'yup'
 import {useHistory, Link} from 'react-router-dom'
 import Logo from '../../assets/img/twitter-logo.png'
+import '../styles/login.css'
+
 
 
 const  SIGNUP_MUTATION = gql `
@@ -43,8 +45,8 @@ const Signup = () => {
 
    
     return (
-        <div>
-            <img src={Logo} width="70" className="logo" />
+        <div className="login-sign-up-container">
+            <img src={Logo} width="50" className="" />
             <h3>Sign up</h3>
             <Formik
                 initialValues={initialValues}
