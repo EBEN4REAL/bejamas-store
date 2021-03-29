@@ -8,6 +8,7 @@ import {setContext} from "apollo-link-context"
 import Signup from './components/Pages/Signup';
 import Login from './components/Pages/Login';
 import IsAuthenticated from './components/IsAuthenticated';
+import Profile from './components/Pages/Profile';
 
 const httpLink = new HttpLink({uri: 'http://localhost:4000'})
 
@@ -28,6 +29,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
+let name: string = "Eben"
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -48,6 +50,11 @@ function App() {
           <IsAuthenticated>
             <Route path="/users" exact>
               <Users />
+            </Route>
+          </IsAuthenticated>
+          <IsAuthenticated>
+            <Route path="/profile" exact>
+            <Profile />
             </Route>
           </IsAuthenticated>
         </Switch>
