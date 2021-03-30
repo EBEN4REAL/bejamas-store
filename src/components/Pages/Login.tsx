@@ -32,7 +32,6 @@ const Login = () => {
         email: Yup.string().email('Invalid email').required("Email Required"),
         password: Yup.string().max(20, "Must be 20 characters or less").required("Password Required")
     })
-    
 
    
     return (

@@ -48,13 +48,13 @@ function App() {
             <Signup />
           </Route>
           <IsAuthenticated>
-            <Route path="/users" exact>
-              <Users />
+            <Route path="/profile" exact>
+              <Profile />
             </Route>
           </IsAuthenticated>
           <IsAuthenticated>
-            <Route path="/profile" exact>
-            <Profile />
+            <Route path="/users" exact>
+              <Users />
             </Route>
           </IsAuthenticated>
         </Switch>
