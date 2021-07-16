@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 
 const NewJobOffers = () => {
-    const [jobOffers, setFeatCosetJobOffermpanies] = useState([]);
+    const [jobOffers, setFeaturedCompanies] = useState([]);
 
     useEffect(() => {
         const jobOffers = [
@@ -40,7 +40,7 @@ const NewJobOffers = () => {
                 compensation: '$ up to PLN 550 net / MD B2B'
             }
         ]
-        setFeatCosetJobOffermpanies(jobOffers)
+        setFeaturedCompanies(jobOffers)
     }, [])
 
     const jobOffersList = jobOffers.map((jobOffer, i) => (
