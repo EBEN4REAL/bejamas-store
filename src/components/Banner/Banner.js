@@ -4,9 +4,9 @@ import BannerImg from '../../assets/img/r.jpg'
 
 const Banner = () => {
     return (
-        <div className="banner d-flex align-items-center" style={{ backgroundImage: `url(${BannerImg})` }}>
+        <div className="banner d-flex align-items-center">
             <div className="banner__container app-width">
-                <h2 className="banner__header font-bold text-white">
+                <h2 className="banner__header font-bold text-white mt-5">
                     Juniors make IT work.
                 </h2>
                 <p className="text-white">Hire and invest in highly skilles juniors now.</p>
