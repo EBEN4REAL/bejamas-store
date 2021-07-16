@@ -1,15 +1,11 @@
 
-.joboffer{
-    display: flex;
-    flex: 0 0 33%;
-}
 .details__btn__icon {
     font-size: 20px;
 }
 .details__btn {
     width: 30px;
     height: 30px;
-    border-radius: 3px;
+    border-radius: 4px;
     background: var(--primary-color);
     box-shadow: 0px 8px 15px var(--btn-shadow);
 }
@@ -23,14 +19,13 @@
 }
 .joboffer__timestamp {
     font-size: 14px;
-    font-weight: lighter;
     color: var(--grey-color)
 }
-.joboffer::after {
-    /* content: '';
+.joboffer-divider {
+    content: '';
     position: absolute;
     right: -15px;
     width: 3px;
     height: 100%;
-    background: var(--lightgrey); */
+    background: var(--lightgrey);
 }

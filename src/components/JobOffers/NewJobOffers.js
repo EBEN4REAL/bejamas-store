@@ -23,7 +23,7 @@ const NewJobOffers = () => {
                 city: 'FrontKom',
                 address: 'Lublin, Polska',
                 timeStamp: '3 hours ago',
-                jobDescription: 'I am currently looking for a java developer. Project for public sector location: Wroclaw (during the pandemic remote work)',
+                jobDescription: 'Join us in the Lublin office to build innvovative long-term projects.Exciting international clients and partners and work environment focused on learning',
                 showCompensation: false,
             },
             {
@@ -48,14 +48,14 @@ const NewJobOffers = () => {
         <div className="app-width">
             <div className='d-flex justify-content-between align-items-center  mt-4'>
                 <div>
-                    <h1 className="font-bold job__offfer__heading">Newest Job Offers</h1>
+                    <div className="font-bold section__heading">Newest Job Offers</div>
                 </div>
                 <div>
                     <a href='#' className="details__link">View all jobs offers</a>
                     <i className="fa fa-long-arrow-right details-icon ml-2" aria-hidden="true"></i>
                 </div>
             </div>
-            <div className="mt-2  d-flex justify-content-between">
+            <div className="mt-2 row">
                 {jobOffersList}
             </div>
         </div>

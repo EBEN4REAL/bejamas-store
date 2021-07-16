@@ -2,17 +2,11 @@ import React from 'react'
 import './JobOffer.css'
 
 
-const JobOffer = ({ jobOffer }) => {
-    // role: 'Junior Java Developer',
-    //     city: 'PickSaas',
-    //         address: 'Wrclaw, Polska',
-    //             timeStamp: '2 hours ago',
-    //                 jobDescription: 'I am currently looking for a java developer. Project for public sector location: Wroclaw (during the pandemic remote work)',
-    //                     showCompensation: true
+const JobOffer = ({ jobOffer }) => {  
     return (
-        <div className="joboffer pr-3 position-relative">
+        <div className="col-md-4 mb-3">
             <div className="">
-                <div className="d-flex align-items-center justify-content-between">
+                <div className="d-flex  justify-content-between">
                     <div className="">
                         <div className="joboffer__header">{jobOffer.role}</div>
                         <div className="mt-1">
@@ -34,9 +28,7 @@ const JobOffer = ({ jobOffer }) => {
                     <div className="text-grey para">
                     {
                         jobOffer.showCompensation
-                            ? (
-                               jobOffer.compensation
-                              )
+                            ? (jobOffer.compensation)
                             : null
                     }
                     </div>

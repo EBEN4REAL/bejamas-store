@@ -16,7 +16,7 @@ const FeaturedCompanies = () => {
             <div className="featcompanies__icon_wrapper d-flex justify-content-center align-items-center">
                 <i className="fa fa-suitcase suitcase" aria-hidden="true"></i>
             </div>
-            <p className="para text-dark font-bold text-center">{company}</p>
+            <p className="featured__companies__content text-dark font-bolder mt-2">{company}</p>
         </div>
     ))
 
@@ -25,7 +25,7 @@ const FeaturedCompanies = () => {
             <div className="mt-50">
                 <h1 className="font-bold section__heading text-dark ">Featured Companies</h1>
             </div>
-            <div className="mt-3 d-flex mb-5">
+            <div className="mt-3 d-flex mb-5 flex-wrap">
                 {Companies}
             </div>
         </div>
