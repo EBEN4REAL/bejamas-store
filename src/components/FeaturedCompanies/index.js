@@ -8,16 +8,16 @@ const FeaturedCompanies = () => {
     const [featCompanies, setFeatCompanies] = useState([]);
 
     useEffect(() => {
-        const companies  = ['GrandParade', 'Seargin', 'DEX Ventures', 'NBC', 'SVT NP Zoo', 'DG Tech', 'PickSaas', 'BlackRose', 'FrontKom']
+        const companies  = ['GrandParade', 'Seargin', 'DEX Ventures', 'NBC', 'SVT SP Zoo', 'DG Tech', 'PickSaas', 'BlackRose', 'FrontKom']
         setFeatCompanies(companies)
     }, [])
     
     const Companies = featCompanies.map(company => (
         <div className="featCompanies__container ">
             <div className="featcompanies__icon_wrapper d-flex justify-content-center align-items-center">
-                <img src={suitcase} width="25" />
+                <img src={suitcase} width="18" />
             </div>
-            <p className="featured__companies__content text-dark font-bolder mt-2">{company}</p>
+            <p className="featured__companies__content text-dark font-bold mt-2">{company}</p>
         </div>
     ))
 
@@ -26,7 +26,7 @@ const FeaturedCompanies = () => {
             <div className="mt-50">
                 <h1 className="font-bold section__heading text-dark ">Featured Companies</h1>
             </div>
-            <div className="mt-3 d-flex mb-5 flex-wrap">
+            <div className="mt-4 d-flex mb-5 flex-wrap">
                 {Companies}
             </div>
         </div>
