@@ -1,9 +1,10 @@
 import React from 'react'
 import './Banner.css'
+import BannerImg from '../../assets/img/r.jpg'
 
 const Banner = () => {
     return (
-        <div className="banner d-flex align-items-center">
+        <div className="banner d-flex align-items-center" style={{ backgroundImage: `url(${BannerImg})` }}>
             <div className="banner__container app-width">
                 <h2 className="banner__header font-bold text-white">
                     Juniors make IT work.

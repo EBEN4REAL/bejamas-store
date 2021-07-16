@@ -1,5 +1,6 @@
 import React from 'react'
 import './JobOffer.css'
+import suitcase from '../../assets/img/suitcase.png'
 
 
 const JobOffer = ({ jobOffer }) => {  
@@ -24,7 +25,7 @@ const JobOffer = ({ jobOffer }) => {
                     <div className="text-grey w-95 para">{jobOffer.jobDescription}
                     </div>
                 </div>
-                <div className="d-flex justify-content-between mt-1">
+                <div className="d-flex justify-content-between">
                     <div className="text-grey para">
                     {
                         jobOffer.showCompensation
@@ -35,6 +36,7 @@ const JobOffer = ({ jobOffer }) => {
                     <div>
                         <div className="details__btn d-flex justify-content-center align-items-center">
                             <i className="fa fa-angle-right text-white details__btn__icon" aria-hidden="true"></i>
+                            
                         </div>
                     </div>
                 </div>

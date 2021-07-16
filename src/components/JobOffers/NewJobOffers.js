@@ -25,6 +25,7 @@ const NewJobOffers = () => {
                 timeStamp: '3 hours ago',
                 jobDescription: 'Join us in the Lublin office to build innvovative long-term projects.Exciting international clients and partners and work environment focused on learning',
                 showCompensation: false,
+                compensation: '$ up to PLN 550 net / MD B2B'
             },
             {
                 role: 'Junior Java Developer',
@@ -55,7 +56,7 @@ const NewJobOffers = () => {
                     <i className="fa fa-long-arrow-right details-icon ml-2" aria-hidden="true"></i>
                 </div>
             </div>
-            <div className="mt-2 row">
+            <div className="mt-4 row">
                 {jobOffersList}
             </div>
         </div>

@@ -1,20 +1,21 @@
 import React from 'react'
 import './FeaturedCompanies.css'
 import { useState, useEffect } from 'react'
+import suitcase from '../../assets/img/suitcase.png'
 
 
 const FeaturedCompanies = () => {
-    const [featCompanies, setFeatCompanies] = useState<String[]>([]);
+    const [featCompanies, setFeatCompanies] = useState([]);
 
     useEffect(() => {
-        const companies: string[]  = ['GrandParade', 'Seargin', 'DEX Ventures', 'NBC', 'SVT NP Zoo', 'DG Tech', 'PickSaas', 'BlackRose', 'FrontKom']
+        const companies  = ['GrandParade', 'Seargin', 'DEX Ventures', 'NBC', 'SVT NP Zoo', 'DG Tech', 'PickSaas', 'BlackRose', 'FrontKom']
         setFeatCompanies(companies)
     }, [])
     
     const Companies = featCompanies.map(company => (
         <div className="featCompanies__container ">
             <div className="featcompanies__icon_wrapper d-flex justify-content-center align-items-center">
-                <i className="fa fa-suitcase suitcase" aria-hidden="true"></i>
+                <img src={suitcase} width="25" />
             </div>
             <p className="featured__companies__content text-dark font-bolder mt-2">{company}</p>
         </div>
