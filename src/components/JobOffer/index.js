@@ -1,6 +1,5 @@
 import React from 'react'
 import './JobOffer.css'
-import suitcase from '../../assets/img/suitcase.png'
 
 
 const JobOffer = ({ jobOffer }) => {  

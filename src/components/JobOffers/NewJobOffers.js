@@ -55,8 +55,7 @@ const NewJobOffers = () => {
                     <div className="font-bold section__heading">Newest Job Offers</div>
                 </div>
                 <div>
-                    <a href='#' className="details__link">View all jobs offers</a>
-                    <i className="fa fa-long-arrow-right details-icon ml-2" aria-hidden="true"></i>
+                    <div className="details__link">View all jobs offers  <i className="fa fa-long-arrow-right details-icon ml-2" aria-hidden="true"></i></div>
                 </div>
             </div>
             <div className="mt-4 row">

@@ -15,7 +15,7 @@ const FeaturedCompanies = () => {
     const Companies = featCompanies.map(company => (
         <div className="featCompanies__container ">
             <div className="featcompanies__icon_wrapper d-flex justify-content-center align-items-center">
-                <img src={suitcase} width="18" />
+                <img src={suitcase} width="18" alt="featured company" />
             </div>
             <p className="featured__companies__content text-dark font-bold mt-2">{company}</p>
         </div>
