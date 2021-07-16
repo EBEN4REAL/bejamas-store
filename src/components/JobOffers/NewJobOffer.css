@@ -1,0 +1,8 @@
+
+.details-icon {
+    color: var(--primary-color)
+}
+.details__link {
+    color: var(--primary-color);
+    font-weight: 600;
+}

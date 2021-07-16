@@ -1,0 +1,12 @@
+.banner {
+  width: 100%;
+  min-height: 400px;
+  background: lightcyan;
+  background-image: url('https://wrkfrce.com/content/images/size/w1024/2020/10/ErgonomicHeader2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner .banner__header {
+    font-size: 28px;
+}

@@ -1,0 +1,20 @@
+.featCompanies__container {
+    flex: 0 0 11.7%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    
+}
+.featcompanies__icon_wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgb(208, 208, 208);
+}
+.text-center {
+    text-align: center;
+}
+.suitcase {
+    color: rgb(114 114 114);
+}
