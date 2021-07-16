@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react'
 
 
 const NewJobOffers = () => {
-    const [jobOffers, setFeatCosetJobOffermpanies] = useState<any[]>([]);
+    const [jobOffers, setFeatCosetJobOffermpanies] = useState([]);
 
     useEffect(() => {
-        const jobOffers: any[] = [
+        const jobOffers = [
             {
                 role: 'Junior Java Developer',
                 city: 'PickSaas',
@@ -16,6 +16,7 @@ const NewJobOffers = () => {
                 timeStamp: '2 hours ago',
                 jobDescription: 'I am currently looking for a java developer. Project for public sector location: Wroclaw (during the pandemic remote work)',
                 showCompensation: true,
+                compensation: '$ up to PLN 550 net / MD B2B'
             },
             {
                 role: 'Junior Project Manager',
@@ -32,16 +33,17 @@ const NewJobOffers = () => {
                 timeStamp: '2 hours ago',
                 jobDescription: 'I am currently looking for a java developer. Project for public sector location: Wroclaw (during the pandemic remote work)',
                 showCompensation: true,
+                compensation: '$ up to PLN 550 net / MD B2B'
             }
         ]
         setFeatCosetJobOffermpanies(jobOffers)
     }, [])
 
-    const jobOffersList = jobOffers.map(jbOffer => (
-        <div className="featCompanies__container ">
-            {/* <JobOffer  /> */}
-        </div>
-    ))
+    const jobOffersList = jobOffers.map((jobOffer, i) => (
+        <JobOffer key={i} jobOffer={jobOffer} />
+    ));
+
+   
     return (
         <div className="app-width">
             <div className='d-flex justify-content-between align-items-center  mt-4'>
@@ -54,6 +56,7 @@ const NewJobOffers = () => {
                 </div>
             </div>
             <div className="mt-2  d-flex justify-content-between">
+                {jobOffersList}
             </div>
         </div>
     )
