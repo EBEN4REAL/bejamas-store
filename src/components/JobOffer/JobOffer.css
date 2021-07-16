@@ -3,14 +3,14 @@
     font-size: 20px;
 }
 .details__btn {
-    width: 30px;
+    width: 32px;
     height: 30px;
     border-radius: 4px;
     background: var(--primary-color);
-    box-shadow: 0px 8px 15px var(--btn-shadow);
+    box-shadow: 0px 3px 15px rgb(120 145 196);
 }
 .joboffer__header {
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--primary-color)
 }

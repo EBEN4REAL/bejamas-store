@@ -5,7 +5,7 @@ import suitcase from '../../assets/img/suitcase.png'
 
 const JobOffer = ({ jobOffer }) => {  
     return (
-        <div className="col-md-4 mb-3">
+        <div className={`col-md-4 mb-3 ${jobOffer.id % 3 !== 0 ? 'border-right' : null}`}>
             <div className="">
                 <div className="d-flex  justify-content-between">
                     <div className="">

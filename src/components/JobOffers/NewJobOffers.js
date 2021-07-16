@@ -10,6 +10,7 @@ const NewJobOffers = () => {
     useEffect(() => {
         const jobOffers = [
             {
+                id: 1,
                 role: 'Junior Java Developer',
                 city: 'PickSaas',
                 address: 'Wrclaw, Polska',
@@ -19,6 +20,7 @@ const NewJobOffers = () => {
                 compensation: '$ up to PLN 550 net / MD B2B'
             },
             {
+                id: 2,
                 role: 'Junior Project Manager',
                 city: 'FrontKom',
                 address: 'Lublin, Polska',
@@ -28,6 +30,7 @@ const NewJobOffers = () => {
                 compensation: '$ up to PLN 550 net / MD B2B'
             },
             {
+                id: 3,
                 role: 'Junior Java Developer',
                 city: 'PickSaas',
                 address: 'Wrclaw, Polska',
@@ -41,7 +44,7 @@ const NewJobOffers = () => {
     }, [])
 
     const jobOffersList = jobOffers.map((jobOffer, i) => (
-        <JobOffer key={i} jobOffer={jobOffer} />
+        <JobOffer key={i} jobOffer={jobOffer}  />
     ));
 
    
