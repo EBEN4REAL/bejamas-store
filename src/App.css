@@ -138,4 +138,7 @@ a{
     .section__heading {
       font-size: 19px;
     }
+    .w-95 {
+        width: 89%;
+    }
 }
