@@ -10,7 +10,7 @@ const Banner = () => {
                 <h2 className="banner__header text-white mt-5">
                     Juniors make IT work.
                 </h2>
-                <p className="text-white">Hire and invest in highly skilles juniors now.</p>
+                <p className="text-white">Hire and invest in highly skilled juniors now.</p>
                 <div className="mt-3">
                     <button className="btn ">Post Offer Now</button>
                 </div>
