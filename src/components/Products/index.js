@@ -3,6 +3,7 @@ import CategoryFilters from "./filters"
 import Products from "./products"
 import ArrowUp from "../../assets/img/arrow-up.png"
 import ArrowDown from "../../assets/img/arrow-down.png"
+import MobileFilter from "../../assets/img/mobile-filter.png"
 import Caret from "../../assets/img/caret.png"
 import "./products.css"
 
@@ -12,7 +13,7 @@ const Filters = () => {
             <div className="app-width">
                 <div className="d-flex justify-content-between mt-5 mb-3 align-items-center">
                     <div className="">
-                        <h4 className="font-bold ">
+                        <h4 className="font-bold filter-header">
                             <span className="black-text font-bold mr-2">
                                 Photography /
                             </span>
@@ -21,12 +22,12 @@ const Filters = () => {
                             </span>
                         </h4>
                     </div>
-                    <div className="">
+                    <div className="m-hide">
                         <span className="mr-2">
                             <img src={ArrowUp} className="" />
                             <img src={ArrowDown} className="" />
                         </span>
-                        <span className="sort-by light-grey mr-3">
+                        <span className="sort-by light-grey mr-3 ">
                             Sort By
                         </span>
                         <span className="black-text mr-2 price-sort fw-500">
@@ -36,9 +37,12 @@ const Filters = () => {
                             <img src={Caret} />
                         </span>
                     </div>
+                    <div className="mobile-filter">
+                        <img src={MobileFilter} />
+                    </div>
                 </div>
                 <div className="row mt-4">
-                    <div className="col-md-3 ">
+                    <div className="col-md-3 filters-container">
                         <CategoryFilters />
                     </div>
                     <div className="col-md-9">

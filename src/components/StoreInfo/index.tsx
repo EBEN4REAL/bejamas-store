@@ -19,7 +19,7 @@ const StoreInfo = () => {
                         </p>
                     </div>
                 </div>
-                <div className="col-md-6 text-right pr-0">
+                <div className="col-md-6 about-prods pr-0">
                     <h6 className="font-bold black-text">People also buy</h6>
                     <div className="about-images mt-3">
                         <img src={Prod1} className="mr-3" />

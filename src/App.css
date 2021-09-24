@@ -82,10 +82,14 @@ input[type="checkbox"] {
   position: relative;
   border-radius: none !important;
 }
+
+/*** Form Styles ***/
 label {
   font-size: 20px;
 }
-/*** Form Styles ***/
+.align-right {
+  text-align: right;
+}
 .checkbox {
     width: 100%;
     margin: 15px auto;
@@ -155,6 +159,14 @@ label {
 .checkbox input[type="checkbox"]:focus + label::before {
     outline: 0;
 }
+@media screen and (min-width: 576px){
+  .mobile-filter {
+    display: none;
+  }
+  .m-filters {
+    display: none;
+  }
+}
 @media screen and (max-width: 575px){
     .app-width {
       width: 93%;
@@ -162,4 +174,23 @@ label {
     .w-95 {
         width: 89%;
     }
+    .about-container {
+      display: block !important;
+    }
+    .banner-header {
+      font-size: 29px !important;
+    }
+    .about-prods {
+      text-align: left !important;
+    }
+    .about-prods img{
+      width: 100px;
+    }
+    .m-hide {
+      display: none;
+    }
+    .filter-header {
+      font-size: 18px;
+    }
+    
 }

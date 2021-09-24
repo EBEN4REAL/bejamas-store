@@ -6,39 +6,44 @@ import "./products.css"
 const Filters = () => {
     return (
         <>
-            <div className="category-filters pb-3">
-                <h6 className="font-bold">Category</h6>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="" value="" />
-                    <label for="checkbox2"><span>People</span></label>
+            <div className="m-hide">
+                <div className="category-filters pb-3">
+                    <h6 className="font-bold">Category</h6>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" name="" value="" />
+                        <label for="checkbox2"><span>People</span></label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" name="" value="" />
+                        <label for="checkbox2"><span>People</span></label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" name="" value="" />
+                        <label for="checkbox2"><span>People</span></label>
+                    </div>
                 </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="" value="" />
-                    <label for="checkbox2"><span>People</span></label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="" value="" />
-                    <label for="checkbox2"><span>People</span></label>
+                <h6 className="font-bold mt-3" > Price range</h6 >
+                <div className="mt-3">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" name="" value="" />
+                        <label for="checkbox2"><span>Lower than $20</span></label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" name="" value="" />
+                        <label for="checkbox2"><span>$20 - $100</span></label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" name="" value="" />
+                        <label for="checkbox2"><span>Lower than $20</span></label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox2" name="" value="" />
+                        <label for="checkbox2"><span>More than $200</span></label>
+                    </div>
                 </div>
             </div>
-            <h6 className="font-bold mt-3" > Price range</h6 >
-            <div className="mt-3">
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="" value="" />
-                    <label for="checkbox2"><span>Lower than $20</span></label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="" value="" />
-                    <label for="checkbox2"><span>$20 - $100</span></label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="" value="" />
-                    <label for="checkbox2"><span>Lower than $20</span></label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="" value="" />
-                    <label for="checkbox2"><span>More than $200</span></label>
-                </div>
+            <div className="m-filters">
+                <div className="filter-overlay"></div>
             </div>
         </>
     )

@@ -5,7 +5,7 @@ import BannerImg from "../../assets/img/banner.png"
 const Banner = () => {
     return (
         <>
-            <div className="app-width d-flex justify-content-between mt-5 mb-3 align-items-center">
+            <div className="app-width d-flex justify-content-between mt-5 mb-3 align-items-center about-container">
                 <div className="">
                     <h3 className="font-bold banner-header ">Samurai King Resting</h3>
                 </div>

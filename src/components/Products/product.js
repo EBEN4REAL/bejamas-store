@@ -2,10 +2,10 @@ import React from 'react'
 import './products.css'
 import Prod from "../../assets/img/prod3.png"
 
-const product = () => {
+const Product = () => {
     return (
         <>
-            <div className="col-md-4 mb-3">
+            <div className="col-md-4 mb-4">
                 <div className="product-banner">
                     <img src={Prod} className="w-100" />
                     <button className="bejamas-btn w-100">ADD TO CART</button>
@@ -25,4 +25,4 @@ const product = () => {
 
     )
 }
-export default product
+export default Product
