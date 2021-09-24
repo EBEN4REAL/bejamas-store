@@ -10,7 +10,7 @@ const Banner = () => {
                     <h3 className="font-bold banner-header ">Samurai King Resting</h3>
                 </div>
                 <div className="">
-                    <button className="bejamas-btn">ADD TO CART</button>
+                    <button className="bejamas-btn primary add-to-cart">ADD TO CART</button>
                 </div>
             </div>
             <div className="banner app-width d-flex align-items-center position-relative position-relative" style={{ backgroundImage: `url(${BannerImg})` }}>

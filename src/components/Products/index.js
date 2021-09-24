@@ -6,8 +6,14 @@ import ArrowDown from "../../assets/img/arrow-down.png"
 import MobileFilter from "../../assets/img/mobile-filter.png"
 import Caret from "../../assets/img/caret.png"
 import "./products.css"
+import { useState } from 'react'
 
 const Filters = () => {
+    const [showFilters, setShowFilters] = useState(false);
+
+    const toggleFilters = () => {
+        setShowFilters(!showFilters)
+    }
     return (
         <>
             <div className="app-width">
@@ -38,12 +44,12 @@ const Filters = () => {
                         </span>
                     </div>
                     <div className="mobile-filter">
-                        <img src={MobileFilter} />
+                        <img src={MobileFilter} onClick={toggleFilters} />
                     </div>
                 </div>
                 <div className="row mt-4">
                     <div className="col-md-3 filters-container">
-                        <CategoryFilters />
+                        <CategoryFilters showFilters={showFilters} toggleFilters={toggleFilters} />
                     </div>
                     <div className="col-md-9">
                         <Products />

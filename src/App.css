@@ -22,6 +22,9 @@ body {
   padding: 0;
   font-family: 'Lato', sans-serif !important;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
 .w-95{
   width: 91%;
 }
@@ -66,14 +69,27 @@ body {
 .bejamas-btn {
   border: none;
   font: inherit;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 800;
+  padding: 10px 39px;
+}
+
+.bejamas-btn.primary {
   color: var(--btn-white);
   background-color: var(--btn-bg);
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 39px;
   
 }
+
+.bejamas-btn.secondary {
+  color: var(--btn-bg);
+  background-color: var(--btn-white);
+  border: 3px solid var(--color-black)
+}
+.hide {
+  display: none;
+}
+
 input[type="checkbox"] {
   height: 20px;
   width: 20px;
@@ -170,6 +186,9 @@ label {
 @media screen and (max-width: 575px){
     .app-width {
       width: 93%;
+    }
+    .add-to-cart {
+      width: 100% !important
     }
     .w-95 {
         width: 89%;
