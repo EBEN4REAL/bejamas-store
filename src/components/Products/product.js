@@ -5,7 +5,7 @@ import Prod from "../../assets/img/prod3.png"
 const product = () => {
     return (
         <>
-            <div className="col-md-3 mb-3">
+            <div className="col-md-4 mb-3">
                 <div className="product-banner">
                     <img src={Prod} className="w-100" />
                     <button className="bejamas-btn w-100">ADD TO CART</button>

@@ -38,10 +38,10 @@ const Filters = () => {
                     </div>
                 </div>
                 <div className="row mt-4">
-                    <div className="col-md-2 ">
+                    <div className="col-md-3 ">
                         <CategoryFilters />
                     </div>
-                    <div className="col-md-10">
+                    <div className="col-md-9">
                         <Products />
                     </div>
                 </div>
