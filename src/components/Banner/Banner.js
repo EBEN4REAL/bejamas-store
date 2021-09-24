@@ -1,21 +1,23 @@
 import React from 'react'
 import './Banner.css'
-import BannerImg from '../../assets/img/resume_for_devops.jpg'
+import BannerImg from "../../assets/img/banner.png"
 
 const Banner = () => {
     return (
-        <div className="banner d-flex align-items-center position-relative" style={{ backgroundImage: `url(${BannerImg})` }}>
-            <div class="overlay"></div>
-            <div className="banner__container app-width">
-                <h2 className="banner__header text-white mt-5">
-                    Juniors make IT work.
-                </h2>
-                <p className="text-white">Hire and invest in highly skilled juniors now.</p>
-                <div className="mt-3">
-                    <button className="btn ">Post Offer Now</button>
+        <>
+            <div className="app-width d-flex justify-content-between mt-5 mb-3 align-items-center">
+                <div className="">
+                    <h3 className="font-bold banner-header ">Samurai King Resting</h3>
+                </div>
+                <div className="">
+                    <button className="bejamas-btn">ADD TO CART</button>
                 </div>
             </div>
-        </div>
+            <div className="banner app-width d-flex align-items-center position-relative position-relative" style={{ backgroundImage: `url(${BannerImg})` }}>
+                <div className="banner-caption px-4 pt-2 pb-2 font-bold" >Photo of the day</div>
+            </div>
+        </>
+        
     )
 }
 export default Banner
