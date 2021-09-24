@@ -1,7 +1,6 @@
 import React from 'react'
 import "./products.css"
-
-
+import Close from "../../assets/img/closebtn.png"
 
 const Filters = () => {
     return (
@@ -46,8 +45,15 @@ const Filters = () => {
                 <div className="filter-overlay">
                     <div className="filter-categories">
                         <div className="app-width">
-                            <div className="category-filters pb-3">
-                                <h4 className="font-bold">Filters</h4>
+                            <div className="category-filters pb-3 pt-3">
+                                <div className="d-flex align-items-center justify-content-between">
+                                    <div className="">
+                                        <h4 className="font-bold">Filters</h4>
+                                    </div>
+                                    <div className="">
+                                        <img src={Close}  />
+                                    </div>
+                                </div>
                                 <div class="checkbox">
                                     <input type="checkbox" id="checkbox2" name="" value="" />
                                     <label for="checkbox2"><span>People</span></label>
