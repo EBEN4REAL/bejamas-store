@@ -14,7 +14,7 @@ const Banner = () => {
                 </div>
             </div>
             <div className="banner app-width d-flex align-items-center position-relative position-relative" style={{ backgroundImage: `url(${BannerImg})` }}>
-                <div className="banner-caption px-4 pt-2 pb-2 font-bold" >Photo of the day</div>
+                <div className="banner-caption   font-bold" >Photo of the day</div>
             </div>
         </>
         

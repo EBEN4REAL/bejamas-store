@@ -1,7 +1,5 @@
 import React from 'react'
 import './Header.css'
-
-/*** Images Imports ***/
 import Logo from "../../assets/img/logo.png"
 import Cart from "../../assets/img/cart.png"
 

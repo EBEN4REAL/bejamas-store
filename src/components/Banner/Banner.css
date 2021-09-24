@@ -20,4 +20,8 @@
   background:  var(--color-white);
   font-size: 14px;
   color: var(--primary-color);
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-bottom: 14px;
+  padding-top: 12px;
 }

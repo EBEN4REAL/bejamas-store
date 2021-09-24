@@ -6,6 +6,9 @@
   --primary-color: rgba(0, 0, 0, 1);
   --color-white: #FFF;
   --color-black: rgba(0, 0, 0, 1);
+  --color-grey: rgba(101, 101, 101, 1);
+  --light-grey: rgba(155, 155, 155, 1);
+  --border-grey: #C2C2C2;  
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
@@ -29,14 +32,33 @@ body {
 .font-bold {
   font-weight: 800;
 }
+.font-light {
+  font-weight: 500;
+}
+.black-text {
+  color: var(--color-black)
+}
+
+.grey-text {
+  color: var(--color-grey)
+}
+.light-grey{
+  color: var(--light-grey)
+}
 .para {
   font-size: 14px;
 }
 .section__heading {
   font-size: 31px;
 }
+.flex-flow-row {
+  flex-flow: row wrap;
+}
 .border-right {
   border-right: var(--grey-color)
+}
+.fw-500 {
+  font-weight: 500;
 }
 .bejamas-btn {
   border: none;

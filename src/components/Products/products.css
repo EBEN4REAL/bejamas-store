@@ -1,0 +1,15 @@
+.sort-by {
+    font-size: 18px;
+}
+.price-sort {
+    font-size: 20px;
+}
+.category-filters {
+    border-bottom: 1px solid var(--border-grey);
+}
+.product-banner {
+    width: 240px;
+}
+.product-container {
+    
+}
