@@ -7,8 +7,13 @@
 .category-filters {
     border-bottom: 1px solid var(--border-grey);
 }
-.product-banner {
-    /* width: 220px; */
+.product-flag  {
+    position: absolute;
+    top: 0;
+    background:  var(--color-white);
+    font-size: 18px;
+    color: var(--primary-color);
+    padding: 6px 18px;
 }
 .product-container {
     

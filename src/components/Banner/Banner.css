@@ -16,7 +16,6 @@
 .banner-caption {
   position: absolute;
   bottom: 0;
-  left: 0;
   background:  var(--color-white);
   font-size: 14px;
   color: var(--primary-color);

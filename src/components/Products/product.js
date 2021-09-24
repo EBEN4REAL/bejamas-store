@@ -9,6 +9,7 @@ const product = () => {
                 <div className="product-banner">
                     <img src={Prod} className="w-100" />
                     <button className="bejamas-btn w-100">ADD TO CART</button>
+                    <div className="product-flag fw-600" >Best Seller</div>
                 </div>
                 <div className="prod-cat font-bold grey-text mt-1">
                     People
