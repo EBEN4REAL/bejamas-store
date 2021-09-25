@@ -14,7 +14,7 @@ const ProductsWrapper = (props) => {
     const [featProduct, setFeaturedProduct] = useState(null)
     const [showFilters, setShowFilters] = useState(false)
     const [showPriceSort, setShowPriceSort] = useState(false)
-    const [priceSortDir, setDriceSortDir] = useState('select order')
+    const [priceSortOrder, setPriceSortOrder] = useState('select order')
     const [selectedCategories, setSelectedCategories] = useState({})
     const [selectedPrice, setSelectedPrice] = useState([])
     const [productsList, setProductsList] = useState([])
@@ -95,7 +95,9 @@ const ProductsWrapper = (props) => {
 
     const getPriceSortDir = (e) => {
 
-        const products = [...props.products]
+        setPriceSortOrder(e.target.value)
+
+        let products = (!Object.keys(selectedCategories).length) && !selectedPrice.length ? [...props.products] : [...productsList]
         
         if (e.target.value === 'asc') {
             products.sort((a, b) => {
@@ -106,16 +108,18 @@ const ProductsWrapper = (props) => {
                 return a.price > b.price ? -1 : 1
             })
         }
-        
-        setDriceSortDir(e.target.value)
 
-        props.dispatch(getProducts(products))
+        (!Object.keys(selectedCategories).length) && !selectedPrice.length ?
+            props.dispatch(getProducts(products))
+            : setProductsList(products)
+            
+        
         setShowPriceSort(false)
     }
 
     const sortProducts = (order) => {
-
-        const products = [...props.products]
+        
+        const products = (!Object.keys(selectedCategories).length) && !selectedPrice.length ? [...props.products] : productsList
 
         if (order === 'asc') {
             products.sort((a, b) => {
@@ -126,8 +130,10 @@ const ProductsWrapper = (props) => {
                 return a.name > b.name ? -1 : 1
             })
         }
+        (!Object.keys(selectedCategories).length) && !selectedPrice.length ?
+            props.dispatch(getProducts(products))
+            : setProductsList(products)
         
-        props.dispatch(getProducts(products))
     }
 
     
@@ -165,7 +171,7 @@ const ProductsWrapper = (props) => {
                             showPriceSort ?
                                 (
                                     <div className="mt-2 price-sort-dir">
-                                        <select value={priceSortDir} onChange={(e) => getPriceSortDir(e)} >
+                                        <select value={priceSortOrder} onChange={(e) => getPriceSortDir(e)} >
                                             <option value="select order">Choose order</option>
                                             <option value="asc">Ascending</option>
                                             <option value="desc">Descending</option>
