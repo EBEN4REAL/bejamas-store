@@ -16,7 +16,7 @@ const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedC
         {
             value: [20, 100],
             name: '$20 - $100',
-            checked: true
+            checked: false
         },
         {
             value: [100, 200],

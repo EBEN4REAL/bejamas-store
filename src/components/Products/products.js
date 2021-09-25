@@ -3,11 +3,15 @@ import './products.css'
 import Product from "./product"
 import Pagination from "../Pagination"
 import { connect } from 'react-redux'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Products = ({ products}) => {
     
     const [currentPage, setCurrentPage] = useState(1)
+
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [products])
 
     const perPage = 6
 
