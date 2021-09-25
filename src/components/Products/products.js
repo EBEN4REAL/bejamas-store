@@ -5,19 +5,40 @@ import Pagination from "../Pagination"
 import { connect } from 'react-redux'
 import { useState } from 'react'
 
-const Products = (props) => {
+const Products = ({products}) => {
     const [currentPage, setCurrentPage] = useState(1)
 
-    const productList = props.products.map((product, i) => (
-        <Product key={i} product={product} />
-    ));
+    const perPage = 6
+
+    const startIndex = (perPage * (currentPage - 1))
+
+    const endIndex = ((perPage * currentPage))
+
+    const productList = []
+
+    console.log(products)
+    
+    for (let i = startIndex; i < endIndex; i++) {
+        console.log(products[i])
+        productList.push(
+            (
+                <Product key={i} product={products[i]} />
+            )
+        )
+    }
+
+    // const productList = products.map((product, i) => (
+    //     <Product key={i} product={product} />
+    // ));
 
     const updateCurrentPage = (newPage, mode) => {
         if (mode == 'num') {
             setCurrentPage(newPage)
         } else {
             if (mode === 'sub') {
-                
+                setCurrentPage(currentPage => currentPage - 1)
+            } else {
+                setCurrentPage(currentPage => currentPage + 1)
             }
         }
     } 
@@ -25,10 +46,14 @@ const Products = (props) => {
     return (
         <>
             <div className="row">
-                {productList}
+                {/* {productList} */}
             </div>
 
-            <Pagination currentPage={currentPage} setCurrentPage={(newPage, mode) => updateCurrentPage(newPage, mode)} />
+            <Pagination
+                currentPage={currentPage}
+                perPage={perPage}
+                setCurrentPage={(newPage, mode) => updateCurrentPage(newPage, mode)}
+            />
         </>
 
     )
