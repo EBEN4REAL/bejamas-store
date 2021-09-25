@@ -15,21 +15,21 @@ const Products = ({products}) => {
     const endIndex = ((perPage * currentPage))
 
     const productList = []
-
-    console.log(products)
+    console.log('****')
+    console.log(startIndex)
+    console.log(endIndex)
     
-    for (let i = startIndex; i < endIndex; i++) {
-        console.log(products[i])
-        productList.push(
-            (
-                <Product key={i} product={products[i]} />
+    if (products.length) {
+        for (let i = startIndex; i < endIndex; i++) {
+            const product = products[i]
+            console.log(products[i])
+            productList.push(
+                (
+                    <Product key={i} product={product} />
+                )
             )
-        )
+        }
     }
-
-    // const productList = products.map((product, i) => (
-    //     <Product key={i} product={product} />
-    // ));
 
     const updateCurrentPage = (newPage, mode) => {
         if (mode == 'num') {
@@ -46,7 +46,7 @@ const Products = ({products}) => {
     return (
         <>
             <div className="row">
-                {/* {productList} */}
+                {productList}
             </div>
 
             <Pagination
