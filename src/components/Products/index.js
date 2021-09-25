@@ -16,24 +16,40 @@ const ProductsWrapper = (props) => {
     const [showPriceSort, setShowPriceSort] = useState(false)
     const [priceSortDir, setDriceSortDir] = useState('select order')
     const [selectedCategories, setSelectedCategories] = useState({})
-    const [selectedPrice, setSelectedPrice] = useState('')
+    const [selectedPrice, setSelectedPrice] = useState([])
     const [productsList, setProductsList] = useState([])
+    const catsObj = {}
 
     useEffect(() => {
-        if ((!Object.keys(selectedCategories).length) && !selectedPrice) {
-            setProductsList(props.products)
-        }
-        if (!selectedPrice) {
-            let prodList = []
+        let prodList = []
+        if (!selectedPrice.length) {
             Object.keys(selectedCategories).forEach(selCat => {
                 prodList = prodList.concat(catsObj[selCat])
             })
             setProductsList(prodList)
+        } else {
+            if (!(Object.keys(selectedCategories).length)) {
+                prodList = props.products.filter(cur => {
+                    if (cur.price >= selectedPrice[0] && cur.price < selectedPrice[1]) {
+                        return cur
+                    }
+                })
+                setProductsList(prodList)
+            } else {
+                Object.keys(selectedCategories).forEach(selCat => {
+                    prodList = prodList.concat(catsObj[selCat])
+                })
+                prodList = prodList.filter(cur => {
+                    if (cur.price >= selectedPrice[0] && cur.price < selectedPrice[1]) {
+                        return cur
+                    }
+                })
+                setProductsList(prodList)
+            }
         }
         
-    }, [selectedCategories])
+    }, [selectedCategories, selectedPrice])
 
-    const catsObj = {}
 
     const updateSelectedCategories = (checked, value) => {
         if (checked) {
@@ -46,6 +62,10 @@ const ProductsWrapper = (props) => {
             setSelectedCategories({ ...categoryVar })
         }
        
+    }
+
+    const updateSelectedPrices = (value) => {
+        setSelectedPrice(value)
     }
 
     if (props.products.length) {
@@ -168,10 +188,11 @@ const ProductsWrapper = (props) => {
                             toggleFilters={toggleFilters}
                             filterCategories={filterCategories}
                             updateSelectedCategories={(checked, value) => updateSelectedCategories(checked, value)}
+                            updateSelectedPrices={(value) => updateSelectedPrices(value)}
                         />
                     </div>
                     <div className="col-md-9">
-                        <Products products={(!Object.keys(selectedCategories).length) && !selectedPrice ?
+                        <Products products={(!Object.keys(selectedCategories).length) && !selectedPrice.length ?
                             props.products : productsList
                         } />
                     </div>

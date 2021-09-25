@@ -2,23 +2,73 @@ import React from 'react'
 import "./products.css"
 import Close from "../../assets/img/closebtn.png"
 import { connect } from 'react-redux'
+import { useState, useEffect } from 'react'
 
 
-const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories }) => {
+const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories, updateSelectedPrices }) => {
+
+    let pricesListArr = [
+        {
+            value: [0, 20],
+            name: 'Lower than $20',
+            checked: false
+        },
+        {
+            value: [20, 100],
+            name: '$20 - $100',
+            checked: true
+        },
+        {
+            value: [100, 200],
+            name: '$100 - $200',
+            checked: false
+        },
+        {
+            value: [200, Number.MAX_VALUE],
+            name: 'More than $200',
+            checked: false
+        }
+    ]
+    const [pricesList, setPricesList] = useState(pricesListArr)
 
     const getCatFilter = (e) => {
         const { checked, value } = e.target
         updateSelectedCategories(checked, value)
     }
 
+    
     const catgoryFilters = filterCategories.map((catFilter, i) => {
         return (
             <div className="checkbox" key={i}>
-                <input type="checkbox" id="checkbox2" name="" value={catFilter} id={i} onChange={(e) => getCatFilter(e)}  />
+                <input type="checkbox" id="checkbox2" name="" value={catFilter} id={i} onChange={(e) => getCatFilter(e)} />
                 <label htmlFor={i}><span>{catFilter}</span></label>
             </div>
         )
     })
+
+    
+    
+
+    const pricesListDisplay = pricesList.map((cur, index) => {
+        return (
+            <div className="checkbox" key={index}>
+                <input type="checkbox" id={`price_${index+1}`} name="" checked={cur.checked}  value={cur.value} onChange={() => getPriceFilter(cur.checked, index)} />
+                <label htmlFor={`price_${index+1}`}><span>{cur.name}</span></label>
+            </div>
+        )
+    })
+
+    const getPriceFilter = (checked, index) => {
+        const newList = [...pricesList]
+        if (!checked) {
+            newList.forEach(cur => {
+                cur.checked = false
+            })
+        }
+        newList[index]['checked'] = !checked
+        setPricesList(newList)
+        updateSelectedPrices(checked ? [] : pricesList[index]['value'])
+    }
     
     return (
         <>
@@ -29,22 +79,7 @@ const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedC
                 </div>
                 <h6 className="font-bold mt-3" > Price range</h6 >
                 <div className="mt-3">
-                    <div className="checkbox">
-                        <input type="checkbox" id="price_1" name=""  value="" />
-                        <label htmlFor="price_1"><span>Lower than $20</span></label>
-                    </div>
-                    <div className="checkbox">
-                        <input type="checkbox" name="" id="price_2" value="" />
-                        <label htmlFor="price_2"><span>$20 - $100</span></label>
-                    </div>
-                    <div className="checkbox">
-                        <input type="checkbox" id="price_3" name="" value="" />
-                        <label htmlFor="price_3"><span>Lower than $20</span></label>
-                    </div>
-                    <div className="checkbox">
-                        <input type="checkbox" id="price_4" name="" value="" />
-                        <label htmlFor="price_4"><span>More than $200</span></label>
-                    </div>
+                    {pricesListDisplay}
                 </div>
             </div>
             {
