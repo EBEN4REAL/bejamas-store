@@ -18,8 +18,8 @@ const StoreInfo = (props) => {
     return (
         <>
             <div className="row justify-content-between app-width mt-4 pb-4 store-info-container">
-                <div className="col-md-6">
-                    <h6 className="font-bold black-text">About the {featProduct ? featProduct.name : ''}</h6>
+                <div className="col-md-6 about-info">
+                    <h4 className="font-bold black-text">About the {featProduct ? featProduct.name : ''}</h4>
                     <p className="grey-text font-bold">{featProduct ? featProduct.categeory :  ''}</p>
                     <div className="aboutInfo">
                         <p className="grey-text">

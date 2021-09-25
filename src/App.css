@@ -180,16 +180,20 @@ label {
   .mobile-filter {
     display: none;
   }
-  /* .m-filters {
-    display: none;
-  } */
 }
 @media screen and (max-width: 575px){
+    .about-info{
+      margin-top: 59px;
+    }
     .app-width {
       width: 93%;
     }
     .add-to-cart {
-      width: 100% !important
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      width: 93%!important;
+      margin-top: 8px;
     }
     .w-95 {
         width: 89%;
