@@ -16,6 +16,24 @@ const ProductsWrapper = (props) => {
     const [showPriceSort, setShowPriceSort] = useState(false)
     const [priceSortDir, setDriceSortDir] = useState('select order')
 
+
+    const catsObj = {}
+
+    if (props.products.length) {
+        props.products.forEach((product) => {
+            const productCategory = product.category
+            if (catsObj[productCategory]) {
+                catsObj[productCategory].push(product)
+            } else {
+                catsObj[productCategory] = [product]
+            }
+        })
+    }
+
+    const filterCategories = Object.keys(catsObj)
+
+    console.log(filterCategories)
+
     useEffect(() => {
         const featuredProduct = props.products.filter((product) => product.featured === true)[0]
         setFeaturedProduct(featuredProduct)
@@ -116,10 +134,14 @@ const ProductsWrapper = (props) => {
                 </div>
                 <div className="row mt-4">
                     <div className="col-md-3 filters-container">
-                        <CategoryFilters showFilters={showFilters} toggleFilters={toggleFilters} />
+                        <CategoryFilters
+                            showFilters={showFilters}
+                            toggleFilters={toggleFilters}
+                            filterCategories={filterCategories}
+                        />
                     </div>
                     <div className="col-md-9">
-                        <Products />
+                        <Products catsObj={catsObj} />
                     </div>
                 </div>
             </div>

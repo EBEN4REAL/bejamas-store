@@ -5,7 +5,9 @@ import Pagination from "../Pagination"
 import { connect } from 'react-redux'
 import { useState } from 'react'
 
-const Products = ({products}) => {
+const Products = ({ products }) => {
+    
+
     const [currentPage, setCurrentPage] = useState(1)
 
     const perPage = 6
@@ -20,14 +22,10 @@ const Products = ({products}) => {
 
 
     const productList = []
-    console.log('****')
-    console.log(startIndex)
-    console.log(endIndex)
     
     if (products.length) {
         for (let i = startIndex; i < endIndex; i++) {
             const product = products[i]
-            console.log(products[i])
             productList.push(
                 (
                     <Product key={i} product={product} />
