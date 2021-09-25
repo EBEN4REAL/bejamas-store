@@ -3,8 +3,10 @@ import './products.css'
 import Product from "./product"
 import Pagination from "../Pagination"
 import { connect } from 'react-redux'
+import { useState } from 'react'
 
 const Products = (props) => {
+    const [currentPage, setCurrentPage] = useState(1)
 
     const productList = props.products.map((product, i) => (
         <Product key={i} product={product} />
@@ -15,7 +17,8 @@ const Products = (props) => {
             <div className="row">
                 {productList}
             </div>
-            <Pagination />
+            
+            <Pagination currentPage={currentPage} setCurrentPage={(newPage) => setCurrentPage(newPage)} />
         </>
 
     )
