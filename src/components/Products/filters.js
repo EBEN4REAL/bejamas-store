@@ -1,7 +1,6 @@
 import React from 'react'
 import "./products.css"
 import Close from "../../assets/img/closebtn.png"
-import { useState } from 'react'
 
 const Filters = ({ showFilters, toggleFilters }) => {
     
@@ -11,36 +10,36 @@ const Filters = ({ showFilters, toggleFilters }) => {
             <div className="m-hide">
                 <div className="category-filters pb-3">
                     <h6 className="font-bold">Category</h6>
-                    <div class="checkbox">
+                    <div className="checkbox">
                         <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label for="checkbox2"><span>People</span></label>
+                        <label htmlFor="checkbox2"><span>People</span></label>
                     </div>
-                    <div class="checkbox">
+                    <div className="checkbox">
                         <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label for="checkbox2"><span>People</span></label>
+                        <label htmlFor="checkbox2"><span>People</span></label>
                     </div>
-                    <div class="checkbox">
+                    <div className="checkbox">
                         <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label for="checkbox2"><span>People</span></label>
+                        <label htmlFor="checkbox2"><span>People</span></label>
                     </div>
                 </div>
                 <h6 className="font-bold mt-3" > Price range</h6 >
                 <div className="mt-3">
-                    <div class="checkbox">
+                    <div className="checkbox">
                         <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label for="checkbox2"><span>Lower than $20</span></label>
+                        <label htmlFor="checkbox2"><span>Lower than $20</span></label>
                     </div>
-                    <div class="checkbox">
+                    <div className="checkbox">
                         <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label for="checkbox2"><span>$20 - $100</span></label>
+                        <label htmlFor="checkbox2"><span>$20 - $100</span></label>
                     </div>
-                    <div class="checkbox">
+                    <div className="checkbox">
                         <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label for="checkbox2"><span>Lower than $20</span></label>
+                        <label htmlFor="checkbox2"><span>Lower than $20</span></label>
                     </div>
-                    <div class="checkbox">
+                    <div className="checkbox">
                         <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label for="checkbox2"><span>More than $200</span></label>
+                        <label htmlFor="checkbox2"><span>More than $200</span></label>
                     </div>
                 </div>
             </div>
@@ -57,39 +56,55 @@ const Filters = ({ showFilters, toggleFilters }) => {
                                                     <h4 className="font-bold">Filters</h4>
                                                 </div>
                                                 <div className="">
-                                                    <img src={Close} onClick={() => toggleFilters()} />
+                                                    <img src={Close} alt="close-btn" onClick={() => toggleFilters()} />
                                                 </div>
                                             </div>
-                                            <div class="checkbox">
+                                            <div className="checkbox">
                                                 <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label for="checkbox2"><span>People</span></label>
+                                                <label htmlFor="checkbox2"><span>People</span></label>
                                             </div>
-                                            <div class="checkbox">
+                                            <div className="checkbox">
                                                 <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label for="checkbox2"><span>People</span></label>
+                                                <label htmlFor="checkbox2"><span>People</span></label>
                                             </div>
-                                            <div class="checkbox">
+                                            <div className="checkbox">
                                                 <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label for="checkbox2"><span>People</span></label>
+                                                <label htmlFor="checkbox2"><span>People</span></label>
                                             </div>
                                         </div>
                                         <h4 className="font-bold mt-3" > Price range</h4 >
                                         <div className="mt-3">
-                                            <div class="checkbox">
+                                            <div className="checkbox">
                                                 <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label for="checkbox2"><span>Lower than $20</span></label>
+                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
                                             </div>
-                                            <div class="checkbox">
+                                            <div className="checkbox">
                                                 <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label for="checkbox2"><span>$20 - $100</span></label>
+                                                <label htmlFor="checkbox2"><span>$20 - $100</span></label>
                                             </div>
-                                            <div class="checkbox">
+                                            <div className="checkbox">
                                                 <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label for="checkbox2"><span>Lower than $20</span></label>
+                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
                                             </div>
-                                            <div class="checkbox">
+                                            <div className="checkbox">
                                                 <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label for="checkbox2"><span>More than $200</span></label>
+                                                <label htmlFor="checkbox2"><span>More than $200</span></label>
+                                            </div>
+                                            <div className="checkbox">
+                                                <input type="checkbox" id="checkbox2" name="" value="" />
+                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
+                                            </div>
+                                            <div className="checkbox">
+                                                <input type="checkbox" id="checkbox2" name="" value="" />
+                                                <label htmlFor="checkbox2"><span>$20 - $100</span></label>
+                                            </div>
+                                            <div className="checkbox">
+                                                <input type="checkbox" id="checkbox2" name="" value="" />
+                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
+                                            </div>
+                                            <div className="checkbox">
+                                                <input type="checkbox" id="checkbox2" name="" value="" />
+                                                <label htmlFor="checkbox2"><span>More than $200</span></label>
                                             </div>
                                         </div>
                                     </div>

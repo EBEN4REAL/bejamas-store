@@ -28,13 +28,13 @@ const Header = (props) => {
     return (
         <header className="header app-width d-flex justify-content-between align-items-center">
             <div className="logo-container">
-                <img src={Logo} />
+                <img src={Logo} alt="Logo" />
                 {cartOpen}
             </div>
             <div className="cart position-relative ">
                
                 <div className="cursor-pointer" onClick={() => setCartOpen(!cartOpen)}>
-                    <img src={cartIcon} className="mr-2" />
+                    <img src={cartIcon} className="mr-2" alt="cart-icon" />
                     {
                         cartItems.length > 0 ?
                             (
@@ -53,7 +53,7 @@ const Header = (props) => {
                                 <div className="pb-2">
                                     <div className="row">
                                         <div className="col-md-12 text-right">
-                                            <img src={Close} className="cursor-pointer" onClick={() => setCartOpen(!cartOpen)} />
+                                            <img alt="cart-dir" src={Close} className="cursor-pointer" onClick={() => setCartOpen(!cartOpen)} />
                                         </div>
                                     </div>
 
@@ -71,7 +71,18 @@ const Header = (props) => {
                                     {
                                         cartItems.length > 0 ?
                                             (
-                                                <div className="bej-border-bottom"></div>
+                                                <div className="bej-border-bottom mt-3"></div>
+                                            )
+
+                                            : null
+                                    }
+
+                                    {
+                                        cartItems.length > 0 ?
+                                            (
+                                                <div className="mt-4">
+                                                    <button className="bejamas-btn secondary font-bold w-100   " onClick={(e) => removeCart(e)}>CLEAR</button>
+                                                </div>
                                             )
 
                                             : null
@@ -79,9 +90,7 @@ const Header = (props) => {
 
                                     
                                     
-                                    <div className="mt-4">
-                                        <button className="bejamas-btn secondary font-bold w-100   " onClick={(e) => removeCart(e)}>CLEAR</button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         ) : null

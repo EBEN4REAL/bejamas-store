@@ -1,16 +1,17 @@
 import React from 'react'
-import './Pagination.css'
+import './Pagination.scss'
 import LeftArrow from "../../assets/img/left-arrow.png"
 import RightArrow from "../../assets/img/right-arrow.png"
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react'
 
+const Pagination = ({products}) => {
 
-
-const Pagination = () => {
     return (
         <div className="text-center mt-5">
-            <div class="d-flex align-items-center justify-content-center">
+            <div className="d-flex align-items-center justify-content-center">
                 <div className="mr-3">
-                    <img src={LeftArrow} width="10"  />
+                    <img src={LeftArrow} width="10" alt="left-arrow"  />
                 </div>
                 <div className="mr-3">
                     <span className="mr-3 light-grey">
@@ -24,10 +25,21 @@ const Pagination = () => {
                     </span>
                 </div>
                 <div>
-                    <img src={RightArrow} width="10" />
+                    <img src={RightArrow} width="10" alt="right-arrow" />
                 </div>
             </div>
         </div>
     )
 }
-export default Pagination
+
+
+function mapStateToProps(state) {
+    return {
+        products: state.products.products
+    }
+}
+
+export default connect(mapStateToProps)(Pagination)
+
+
+
