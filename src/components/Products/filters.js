@@ -5,50 +5,25 @@ import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 
 
-const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories, updateSelectedPrices }) => {
-
-    let pricesListArr = [
-        {
-            value: [0, 20],
-            name: 'Lower than $20',
-            checked: false
-        },
-        {
-            value: [20, 100],
-            name: '$20 - $100',
-            checked: false
-        },
-        {
-            value: [100, 200],
-            name: '$100 - $200',
-            checked: false
-        },
-        {
-            value: [200, Number.MAX_VALUE],
-            name: 'More than $200',
-            checked: false
-        }
-    ]
-    const [pricesList, setPricesList] = useState(pricesListArr)
+const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories, updateSelectedPrices, toggleShowFilters, clearFilters, pricesList, updatePricesList }) => {
 
     const getCatFilter = (e) => {
+        console.log(e.target.checked)
         const { checked, value } = e.target
         updateSelectedCategories(checked, value)
     }
 
     
-    const catgoryFilters = filterCategories.map((catFilter, i) => {
+    const catgoryFilters = filterCategories.map((catFilter, index) => {
         return (
-            <div className="checkbox" key={i}>
-                <input type="checkbox" id="checkbox2" name="" value={catFilter} id={i} onChange={(e) => getCatFilter(e)} />
-                <label htmlFor={i}><span>{catFilter}</span></label>
+            <div className="checkbox" key={index}>
+                <input type="checkbox"  name="" value={catFilter} id={`price-${index + 2}`} onChange={(e) => getCatFilter(e)} />
+                <label htmlFor={`price-${index + 2}`}><span>{catFilter}</span></label>
             </div>
         )
     })
 
     
-    
-
     const pricesListDisplay = pricesList.map((cur, index) => {
         return (
             <div className="checkbox" key={index}>
@@ -66,22 +41,38 @@ const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedC
             })
         }
         newList[index]['checked'] = !checked
-        setPricesList(newList)
+        updatePricesList(newList)
         updateSelectedPrices(checked ? [] : pricesList[index]['value'])
+    }
+
+    const saveFilters = (e) => {
+        e.preventDefault()
+        toggleShowFilters(false)
+    }
+
+    const removeFilters = (e) => {
+        e.preventDefault()
+        clearFilters()
     }
     
     return (
         <>
-            <div className="m-hide">
-                <div className="category-filters pb-3">
-                    <h6 className="font-bold">Category</h6>
-                    {catgoryFilters}
-                </div>
-                <h6 className="font-bold mt-3" > Price range</h6 >
-                <div className="mt-3">
-                    {pricesListDisplay}
-                </div>
-            </div>
+            {
+                !showFilters &&
+                
+                (
+                    <div className="m-hide">
+                        <div className="category-filters pb-3">
+                            <h6 className="font-bold">Category</h6>
+                            {catgoryFilters}
+                        </div>
+                        <h6 className="font-bold mt-3" > Price range</h6 >
+                        <div className="mt-3">
+                            {pricesListDisplay}
+                        </div>
+                    </div>
+                )
+            }
             {
                 showFilters ?
                     (
@@ -98,61 +89,19 @@ const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedC
                                                     <img src={Close} alt="close-btn" onClick={() => toggleFilters()} />
                                                 </div>
                                             </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>People</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>People</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>People</span></label>
-                                            </div>
+                                            {catgoryFilters}
                                         </div>
                                         <h4 className="font-bold mt-3" > Price range</h4 >
                                         <div className="mt-3">
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>$20 - $100</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>More than $200</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>$20 - $100</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>Lower than $20</span></label>
-                                            </div>
-                                            <div className="checkbox">
-                                                <input type="checkbox" id="checkbox2" name="" value="" />
-                                                <label htmlFor="checkbox2"><span>More than $200</span></label>
-                                            </div>
+                                            {pricesListDisplay}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="filter-btns p-3">
                                 <div className="d-flex justify-content-between">
-                                    <button className="bejamas-btn secondary font-weight w-100 mr-3  ">CLEAR</button>
-                                    <button className="bejamas-btn primary w-100  ">SAVE</button>
+                                    <button className="bejamas-btn secondary font-weight w-100 mr-3  " onClick={(e) => removeFilters(e)}>CLEAR</button>
+                                    <button className="bejamas-btn primary w-100" onClick={(e) => saveFilters(e)}>SAVE</button>
                                 </div>
                             </div>
                         </div>

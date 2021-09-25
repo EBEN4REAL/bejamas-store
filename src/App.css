@@ -180,9 +180,9 @@ label {
   .mobile-filter {
     display: none;
   }
-  .m-filters {
+  /* .m-filters {
     display: none;
-  }
+  } */
 }
 @media screen and (max-width: 575px){
     .app-width {

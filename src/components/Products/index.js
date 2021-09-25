@@ -1,5 +1,5 @@
 import React from 'react'
-import CategoryFilters from "./filters"
+import Filters from "./filters"
 import Products from "./products"
 import ArrowUp from "../../assets/img/arrow-up.png"
 import ArrowDown from "../../assets/img/arrow-down.png"
@@ -18,7 +18,36 @@ const ProductsWrapper = (props) => {
     const [selectedCategories, setSelectedCategories] = useState({})
     const [selectedPrice, setSelectedPrice] = useState([])
     const [productsList, setProductsList] = useState([])
-    const catsObj = {}
+
+    let pricesListArr = [
+        {
+            value: [0, 20],
+            name: 'Lower than $20',
+            checked: false
+        },
+        {
+            value: [20, 100],
+            name: '$20 - $100',
+            checked: false
+        },
+        {
+            value: [100, 200],
+            name: '$100 - $200',
+            checked: false
+        },
+        {
+            value: [200, Number.MAX_VALUE],
+            name: 'More than $200',
+            checked: false
+        }
+    ]
+
+
+    const [pricesList, setPricesList] = useState(pricesListArr)
+
+    let catsObj = {}
+
+    
 
     useEffect(() => {
         let prodList = []
@@ -113,13 +142,19 @@ const ProductsWrapper = (props) => {
             props.dispatch(getProducts(products))
             : setProductsList(products)
             
-        
         setShowPriceSort(false)
+    }
+
+    const clearFilters = () => {
+        setPricesList(pricesListArr)
+        setSelectedCategories({})
+        setSelectedPrice([])
+        setShowFilters(false)
     }
 
     const sortProducts = (order) => {
         
-        const products = (!Object.keys(selectedCategories).length) && !selectedPrice.length ? [...props.products] : productsList
+        let products = (!Object.keys(selectedCategories).length) && !selectedPrice.length ? [...props.products] : [...productsList]
 
         if (order === 'asc') {
             products.sort((a, b) => {
@@ -135,6 +170,8 @@ const ProductsWrapper = (props) => {
             : setProductsList(products)
         
     }
+
+  
 
     
     return (
@@ -189,11 +226,15 @@ const ProductsWrapper = (props) => {
                 </div>
                 <div className="row mt-4">
                     <div className="col-md-3 filters-container">
-                        <CategoryFilters
+                        <Filters
                             showFilters={showFilters}
                             toggleFilters={toggleFilters}
                             filterCategories={filterCategories}
                             updateSelectedCategories={(checked, value) => updateSelectedCategories(checked, value)}
+                            toggleShowFilters={(bool) => setShowFilters(bool)}
+                            clearFilters={() => clearFilters()}
+                            pricesList={pricesList}
+                            updatePricesList={(newList) => setPricesList(newList)}
                             updateSelectedPrices={(value) => updateSelectedPrices(value)}
                         />
                     </div>
