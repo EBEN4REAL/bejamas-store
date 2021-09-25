@@ -30,19 +30,19 @@ const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedC
                 <h6 className="font-bold mt-3" > Price range</h6 >
                 <div className="mt-3">
                     <div className="checkbox">
-                        <input type="checkbox" id="price_1" name=""  value="" />
+                        <input type="checkbox" id="price_1" name="" value="Lower than $20" />
                         <label htmlFor="price_1"><span>Lower than $20</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" name="" id="price_2" value="" />
+                        <input type="checkbox" name="" id="price_2" value="$20 - $100" />
                         <label htmlFor="price_2"><span>$20 - $100</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="price_3" name="" value="" />
+                        <input type="checkbox" id="price_3" name="" value="Lower than $20" />
                         <label htmlFor="price_3"><span>Lower than $20</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="price_4" name="" value="" />
+                        <input type="checkbox" id="price_4" name="" value="Lower than $20" />
                         <label htmlFor="price_4"><span>More than $200</span></label>
                     </div>
                 </div>
