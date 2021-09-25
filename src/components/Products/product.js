@@ -1,6 +1,5 @@
 import React from 'react'
 import './products.css'
-import Prod from "../../assets/img/prod3.png"
 import { addToCart } from "../../store/actions/CartActions"
 import { connect } from 'react-redux';
 import { useState } from 'react';
@@ -20,7 +19,6 @@ const Product = (props) => {
             <div className="col-md-4 mb-4">
                 {onHover.state}
                 <div className="product-banner position-relative" onMouseEnter={() => setHoverState(true)} onMouseLeave={() => setHoverState(false)} style={{ backgroundImage: `url(${product.image.src})` }}>
-                    {/* <img src={product.image.src} className="w-100 prod-img"  /> */}
                     {
                         onHover ?
                             

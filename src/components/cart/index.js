@@ -1,8 +1,5 @@
 import React from 'react'
-import { addToCart } from "../../store/actions/CartActions"
 import { connect } from 'react-redux';
-import { useState } from 'react'
-import BannerImg from "../../assets/img/banner.png"
 
 const Cart = (props) => {
 
@@ -19,7 +16,6 @@ const Cart = (props) => {
                 </div>
                 <div className="col-md-3 ">
                     <div className="cart-banner" style={{ backgroundImage: `url(${props.cartItem.image.src})` }}>
-                        {/* <img src={props.cartItem.image.src} alt={props.cartItem.image.name} className="w-100" /> */}
                     </div>
                 </div>
             </div>

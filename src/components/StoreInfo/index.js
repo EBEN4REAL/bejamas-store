@@ -13,7 +13,7 @@ const StoreInfo = (props) => {
     useEffect(() => {
         const featuredProduct = props.products.filter((product) => product.featured === true)[0]
         setFeaturedProduct(featuredProduct)
-    }, [featProduct])
+    })
 
     return (
         <>
@@ -30,9 +30,9 @@ const StoreInfo = (props) => {
                 <div className="col-md-6 about-prods pr-0">
                     <h6 className="font-bold black-text">People also buy</h6>
                     <div className="about-images mt-3">
-                        <img src={Prod1} className="mr-3" />
-                        <img src={Prod2} className="mr-3" />
-                        <img src={Prod3} />
+                        <img src={Prod1} className="mr-3" alt="other-prod" />
+                        <img src={Prod2} className="mr-3" alt="other-prod " />
+                        <img src={Prod3} alt="other-prod " alt="other-prod "/>
                     </div>
                     <div className="mt-5">
                         <h6 className="font-bold black-text">Details</h6>

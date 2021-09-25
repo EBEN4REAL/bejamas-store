@@ -27,6 +27,7 @@ const ProductsWrapper = (props) => {
     }
 
     const getPriceSortDir = (e) => {
+
         const products = [...props.products]
         
         if (e.target.value === 'asc') {
@@ -45,11 +46,11 @@ const ProductsWrapper = (props) => {
         setShowPriceSort(false)
     }
 
-    const sortProducts = (type) => {
+    const sortProducts = (order) => {
 
         const products = [...props.products]
 
-        if (type === 'asc') {
+        if (order === 'asc') {
             products.sort((a, b) => {
                 return a.name > b.name ? 1 : -1
             })
@@ -79,8 +80,8 @@ const ProductsWrapper = (props) => {
                     </div>
                     <div className="m-hide position-relative">
                         <span className="mr-2">
-                            <img src={ArrowUp} className="cursor-pointer" onClick={() => sortProducts('asc')} />
-                            <img src={ArrowDown} className="cursor-pointer" onClick={() => sortProducts('desc')} />
+                            <img src={ArrowUp} alt="up-arrow" className="cursor-pointer" onClick={() => sortProducts('asc')} />
+                            <img src={ArrowDown} alt="down-arrow" className="cursor-pointer" onClick={() => sortProducts('desc')} />
                         </span>
                         <span onClick={() => setShowPriceSort(!showPriceSort)} className="cursor-pointer">
                             <span className="sort-by light-grey mr-3 ">
@@ -90,7 +91,7 @@ const ProductsWrapper = (props) => {
                                 Price
                             </span>
                             <span>
-                                <img src={Caret} />
+                                <img src={Caret} alt="caret" />
                             </span>
                         </span>
                         {
@@ -110,7 +111,7 @@ const ProductsWrapper = (props) => {
                        
                     </div>
                     <div className="mobile-filter">
-                        <img src={MobileFilter} onClick={toggleFilters} />
+                        <img src={MobileFilter} onClick={toggleFilters} alt="mobile-filter" />
                     </div>
                 </div>
                 <div className="row mt-4">

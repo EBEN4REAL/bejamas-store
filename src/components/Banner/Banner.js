@@ -10,9 +10,11 @@ const Banner = (props) => {
     const [featProduct, setFeaturedProduct] = useState(null)
 
     useEffect(() => {
+        console.log(props.products)
         const featuredProduct = props.products.filter(product => product.featured === true)[0]
+        console.log(featuredProduct)
         setFeaturedProduct(featuredProduct)
-    }, [featProduct])
+    })
    
 
     return (
