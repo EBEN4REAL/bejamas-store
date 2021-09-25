@@ -10,9 +10,14 @@ const Products = ({products}) => {
 
     const perPage = 6
 
+    const totalPages = Math.ceil(products.length / perPage)
+
     const startIndex = (perPage * (currentPage - 1))
 
-    const endIndex = ((perPage * currentPage))
+    const endIndex = currentPage == totalPages
+        ? products.length
+        : (perPage * currentPage)
+
 
     const productList = []
     console.log('****')
@@ -52,6 +57,7 @@ const Products = ({products}) => {
             <Pagination
                 currentPage={currentPage}
                 perPage={perPage}
+                totalPages={totalPages}
                 setCurrentPage={(newPage, mode) => updateCurrentPage(newPage, mode)}
             />
         </>

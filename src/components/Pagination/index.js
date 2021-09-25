@@ -4,9 +4,8 @@ import LeftArrow from "../../assets/img/left-arrow.png"
 import RightArrow from "../../assets/img/right-arrow.png"
 import { connect } from 'react-redux';
 
-const Pagination = ({ products, currentPage, setCurrentPage, perPage }) => {
+const Pagination = ({ products, currentPage, setCurrentPage, perPage, totalPages }) => {
 
-    const totalPages = Math.ceil(products.length / perPage)
 
     const numsArr = []
     
