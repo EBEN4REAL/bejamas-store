@@ -1,45 +1,49 @@
 import React from 'react'
 import "./products.css"
 import Close from "../../assets/img/closebtn.png"
+import { connect } from 'react-redux'
 
-const Filters = ({ showFilters, toggleFilters }) => {
+
+const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories }) => {
+
+    const getCatFilter = (e) => {
+        const { checked, value } = e.target
+        updateSelectedCategories(checked, value)
+    }
+
+    const catgoryFilters = filterCategories.map((catFilter, i) => {
+        return (
+            <div className="checkbox" key={i}>
+                <input type="checkbox" id="checkbox2" name="" value={catFilter} id={i} onChange={(e) => getCatFilter(e)}  />
+                <label htmlFor={i}><span>{catFilter}</span></label>
+            </div>
+        )
+    })
     
-
     return (
         <>
             <div className="m-hide">
                 <div className="category-filters pb-3">
                     <h6 className="font-bold">Category</h6>
-                    <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>People</span></label>
-                    </div>
-                    <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>People</span></label>
-                    </div>
-                    <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>People</span></label>
-                    </div>
+                    {catgoryFilters}
                 </div>
                 <h6 className="font-bold mt-3" > Price range</h6 >
                 <div className="mt-3">
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>Lower than $20</span></label>
+                        <input type="checkbox" id="price_1" name=""  value="" />
+                        <label htmlFor="price_1"><span>Lower than $20</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>$20 - $100</span></label>
+                        <input type="checkbox" name="" id="price_2" value="" />
+                        <label htmlFor="price_2"><span>$20 - $100</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>Lower than $20</span></label>
+                        <input type="checkbox" id="price_3" name="" value="" />
+                        <label htmlFor="price_3"><span>Lower than $20</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>More than $200</span></label>
+                        <input type="checkbox" id="price_4" name="" value="" />
+                        <label htmlFor="price_4"><span>More than $200</span></label>
                     </div>
                 </div>
             </div>
@@ -125,4 +129,12 @@ const Filters = ({ showFilters, toggleFilters }) => {
         </>
     )
 }
-export default Filters
+
+function mapStateToProps(state) {
+    return {
+        products: state.products.products
+    }
+}
+
+export default connect(mapStateToProps)(Filters)
+

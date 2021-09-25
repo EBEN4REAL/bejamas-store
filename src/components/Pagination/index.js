@@ -3,30 +3,50 @@ import './Pagination.scss'
 import LeftArrow from "../../assets/img/left-arrow.png"
 import RightArrow from "../../assets/img/right-arrow.png"
 import { connect } from 'react-redux';
-import { useState, useEffect } from 'react'
 
-const Pagination = ({products}) => {
+const Pagination = ({ products, currentPage, setCurrentPage, perPage, totalPages }) => {
+
+
+    const numsArr = []
+    
+    for (let i = 1; i <= totalPages; i++) {
+        numsArr.push(
+            (
+                <div key={i} onClick={() => setCurrentPage(i, "num")}>
+                    <span className={`mr-3 light-grey pagination-number fw-500 ${currentPage === i && 'active-page '} cursor-pointer`}>
+                        {i}
+                    </span>
+                </div>
+
+            )
+        )
+    }
 
     return (
         <div className="text-center mt-5">
             <div className="d-flex align-items-center justify-content-center">
-                <div className="mr-3">
-                    <img src={LeftArrow} width="10" alt="left-arrow"  />
-                </div>
-                <div className="mr-3">
-                    <span className="mr-3 light-grey">
-                        1
-                    </span>
-                    <span className="mr-3 black-text font-bold">
-                        2
-                    </span>
-                    <span className="light-grey">
-                        3
-                    </span>
-                </div>
-                <div>
-                    <img src={RightArrow} width="10" alt="right-arrow" />
-                </div>
+                {
+                    currentPage !== 1 &&
+
+                    (
+                        <div className="mr-3 cursor-pointer" onClick={() => setCurrentPage(1, "sub")}>
+                            <img src={LeftArrow} width="10" alt="left-arrow" />
+                        </div>
+                    )
+                }
+                
+                {numsArr}
+
+                {
+                    currentPage !== totalPages &&
+
+                    (
+                        <div className="cursor-pointer">
+                            <img src={RightArrow} width="10" alt="right-arrow" onClick={() => setCurrentPage(1, "add")} />
+                        </div>
+                    )
+                }
+                
             </div>
         </div>
     )

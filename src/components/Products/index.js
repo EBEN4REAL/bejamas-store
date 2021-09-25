@@ -15,6 +15,53 @@ const ProductsWrapper = (props) => {
     const [showFilters, setShowFilters] = useState(false)
     const [showPriceSort, setShowPriceSort] = useState(false)
     const [priceSortDir, setDriceSortDir] = useState('select order')
+    const [selectedCategories, setSelectedCategories] = useState({})
+    const [selectedPrice, setSelectedPrice] = useState('')
+    const [productsList, setProductsList] = useState([])
+
+    useEffect(() => {
+        if ((!Object.keys(selectedCategories).length) && !selectedPrice) {
+            setProductsList(props.products)
+        }
+        if (!selectedPrice) {
+            let prodList = []
+            Object.keys(selectedCategories).forEach(selCat => {
+                prodList = prodList.concat(catsObj[selCat])
+            })
+            setProductsList(prodList)
+        }
+        
+    }, [selectedCategories])
+
+    const catsObj = {}
+
+    const updateSelectedCategories = (checked, value) => {
+        if (checked) {
+            setSelectedCategories({ ...selectedCategories, [value]: value })
+        } else {
+            const categoryVar = {
+                ...selectedCategories
+            }
+            delete categoryVar[value]
+            setSelectedCategories({ ...categoryVar })
+        }
+       
+    }
+
+    if (props.products.length) {
+        props.products.forEach((product) => {
+            const productCategory = product.category
+            if (catsObj[productCategory]) {
+                catsObj[productCategory].push(product)
+            } else {
+                catsObj[productCategory] = [product]
+            }
+        })
+    }
+
+
+
+    const filterCategories = Object.keys(catsObj)
 
     useEffect(() => {
         const featuredProduct = props.products.filter((product) => product.featured === true)[0]
@@ -116,10 +163,17 @@ const ProductsWrapper = (props) => {
                 </div>
                 <div className="row mt-4">
                     <div className="col-md-3 filters-container">
-                        <CategoryFilters showFilters={showFilters} toggleFilters={toggleFilters} />
+                        <CategoryFilters
+                            showFilters={showFilters}
+                            toggleFilters={toggleFilters}
+                            filterCategories={filterCategories}
+                            updateSelectedCategories={(checked, value) => updateSelectedCategories(checked, value)}
+                        />
                     </div>
                     <div className="col-md-9">
-                        <Products />
+                        <Products products={(!Object.keys(selectedCategories).length) && !selectedPrice ?
+                            props.products : productsList
+                        } />
                     </div>
                 </div>
             </div>
