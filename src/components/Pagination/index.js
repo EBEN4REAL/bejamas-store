@@ -23,7 +23,7 @@ const Pagination = ({ products, currentPage, setCurrentPage }) => {
     for (let i = 1; i <= totalPages; i++) {
         numsArr.push(
             (
-                <div key={i} onClick={() => setCurrentPage(i)}>
+                <div key={i} onClick={() => setCurrentPage(i, "num")}>
                     <span className={`mr-3 light-grey pagination-number fw-500 ${currentPage === i && 'active-page '} cursor-pointer`}>
                         {i}
                     </span>
@@ -36,12 +36,12 @@ const Pagination = ({ products, currentPage, setCurrentPage }) => {
     return (
         <div className="text-center mt-5">
             <div className="d-flex align-items-center justify-content-center">
-                <div className="mr-3">
-                    <img src={LeftArrow} width="10" alt="left-arrow"  />
+                <div className="mr-3" onClick={() => setCurrentPage(1, "sub")}>
+                    <img src={LeftArrow} width="10" alt="left-arrow"   />
                 </div>
                 {numsArr}
                 <div>
-                    <img src={RightArrow} width="10" alt="right-arrow" />
+                    <img src={RightArrow} width="10" alt="right-arrow" onClick={() => setCurrentPage(1 , "add")} />
                 </div>
             </div>
         </div>

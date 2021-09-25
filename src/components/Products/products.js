@@ -12,13 +12,23 @@ const Products = (props) => {
         <Product key={i} product={product} />
     ));
 
+    const updateCurrentPage = (newPage, mode) => {
+        if (mode == 'num') {
+            setCurrentPage(newPage)
+        } else {
+            if (mode === 'sub') {
+                
+            }
+        }
+    } 
+
     return (
         <>
             <div className="row">
                 {productList}
             </div>
-            
-            <Pagination currentPage={currentPage} setCurrentPage={(newPage) => setCurrentPage(newPage)} />
+
+            <Pagination currentPage={currentPage} setCurrentPage={(newPage, mode) => updateCurrentPage(newPage, mode)} />
         </>
 
     )
