@@ -15,9 +15,25 @@ const ProductsWrapper = (props) => {
     const [showFilters, setShowFilters] = useState(false)
     const [showPriceSort, setShowPriceSort] = useState(false)
     const [priceSortDir, setDriceSortDir] = useState('select order')
+    const [selectedCategories, setSelectedCategories] = useState({})
+    const [selectedPrice, setSselectedPrice] = useState('')
 
+    const updateSelectedCategories = (checked, value) => {
+        if (checked) {
+            setSelectedCategories({ ...selectedCategories, [value]: value })
+        } else {
+            const categoryVar = {
+                ...selectedCategories
+            }
+            delete categoryVar[value]
+            setSelectedCategories({ ...categoryVar })
+        }
+    }
+
+    console.log(selectedCategories)
 
     const catsObj = {}
+    
 
     if (props.products.length) {
         props.products.forEach((product) => {
@@ -31,8 +47,6 @@ const ProductsWrapper = (props) => {
     }
 
     const filterCategories = Object.keys(catsObj)
-
-    console.log(filterCategories)
 
     useEffect(() => {
         const featuredProduct = props.products.filter((product) => product.featured === true)[0]
@@ -138,6 +152,7 @@ const ProductsWrapper = (props) => {
                             showFilters={showFilters}
                             toggleFilters={toggleFilters}
                             filterCategories={filterCategories}
+                            updateSelectedCategories={(checked, value) => updateSelectedCategories(checked, value)}
                         />
                     </div>
                     <div className="col-md-9">

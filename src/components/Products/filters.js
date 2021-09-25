@@ -4,12 +4,13 @@ import Close from "../../assets/img/closebtn.png"
 import { connect } from 'react-redux'
 
 
-const Filters = ({ showFilters, toggleFilters, filterCategories }) => {
+const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories }) => {
 
     const getCatFilter = (e) => {
-        console.log(e.target)
-        console.log(e.target.checked)
-        alert(e.target.value)
+        const { checked, value } = e.target
+        console.log(value)
+        console.log(value)
+        updateSelectedCategories(checked, value)
     }
 
     const catgoryFilters = filterCategories.map((catFilter, i) => {
