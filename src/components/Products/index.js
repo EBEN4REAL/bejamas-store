@@ -16,7 +16,24 @@ const ProductsWrapper = (props) => {
     const [showPriceSort, setShowPriceSort] = useState(false)
     const [priceSortDir, setDriceSortDir] = useState('select order')
     const [selectedCategories, setSelectedCategories] = useState({})
-    const [selectedPrice, setSselectedPrice] = useState('')
+    const [selectedPrice, setSelectedPrice] = useState('')
+    const [productsList, setProductsList] = useState([])
+
+    useEffect(() => {
+        if ((!Object.keys(selectedCategories).length) && !selectedPrice) {
+            setProductsList(props.products)
+        }
+        if (!selectedPrice) {
+            let prodList = []
+            Object.keys(selectedCategories).forEach(selCat => {
+                prodList = prodList.concat(catsObj[selCat])
+            })
+            setProductsList(prodList)
+        }
+        
+    }, [selectedCategories])
+
+    const catsObj = {}
 
     const updateSelectedCategories = (checked, value) => {
         if (checked) {
@@ -28,12 +45,8 @@ const ProductsWrapper = (props) => {
             delete categoryVar[value]
             setSelectedCategories({ ...categoryVar })
         }
+       
     }
-
-    console.log(selectedCategories)
-
-    const catsObj = {}
-    
 
     if (props.products.length) {
         props.products.forEach((product) => {
@@ -45,6 +58,8 @@ const ProductsWrapper = (props) => {
             }
         })
     }
+
+
 
     const filterCategories = Object.keys(catsObj)
 
@@ -156,7 +171,9 @@ const ProductsWrapper = (props) => {
                         />
                     </div>
                     <div className="col-md-9">
-                        <Products catsObj={catsObj} />
+                        <Products products={(!Object.keys(selectedCategories).length) && !selectedPrice ?
+                            props.products : productsList
+                        } />
                     </div>
                 </div>
             </div>

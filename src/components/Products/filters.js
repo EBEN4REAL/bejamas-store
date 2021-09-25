@@ -8,8 +8,6 @@ const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedC
 
     const getCatFilter = (e) => {
         const { checked, value } = e.target
-        console.log(value)
-        console.log(value)
         updateSelectedCategories(checked, value)
     }
 
@@ -32,20 +30,20 @@ const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedC
                 <h6 className="font-bold mt-3" > Price range</h6 >
                 <div className="mt-3">
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>Lower than $20</span></label>
+                        <input type="checkbox" id="price_1" name=""  value="" />
+                        <label htmlFor="price_1"><span>Lower than $20</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>$20 - $100</span></label>
+                        <input type="checkbox" name="" id="price_2" value="" />
+                        <label htmlFor="price_2"><span>$20 - $100</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>Lower than $20</span></label>
+                        <input type="checkbox" id="price_3" name="" value="" />
+                        <label htmlFor="price_3"><span>Lower than $20</span></label>
                     </div>
                     <div className="checkbox">
-                        <input type="checkbox" id="checkbox2" name="" value="" />
-                        <label htmlFor="checkbox2"><span>More than $200</span></label>
+                        <input type="checkbox" id="price_4" name="" value="" />
+                        <label htmlFor="price_4"><span>More than $200</span></label>
                     </div>
                 </div>
             </div>
