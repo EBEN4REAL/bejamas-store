@@ -5,27 +5,21 @@ import { useState } from 'react'
 import BannerImg from "../../assets/img/banner.png"
 
 const Cart = (props) => {
-    const [cartOpen, setCartOpen] = useState(false);
-    
-    const addCartItem = (e, product) => {
-        e.preventDefault()
-        props.dispatch(addToCart(product))
-    }
-  
+
     return (
         <>
             <div className="row cart-product-row  pb-2">
                 <div className="col-md-9 ">
                     <div className="">
-                        <h5 className="font-bold  ">{props.cartItem.name} {props.cartItem.currency}</h5>
+                        <h5 className="font-bold  ">{props.cartItem.name} </h5>
                     </div>
                     <div className="">
-                        <h4 className="light-grey">{props.cartItem.price}</h4>
+                        <h4 className="light-grey">{props.cartItem.currency} {props.cartItem.price}</h4>
                     </div>
                 </div>
                 <div className="col-md-3 ">
-                    <div className="cart-banner" >
-                        <img src={BannerImg} className="w-100" />
+                    <div className="cart-banner" style={{ backgroundImage: `url(${props.cartItem.image.src})` }}>
+                        {/* <img src={props.cartItem.image.src} alt={props.cartItem.image.name} className="w-100" /> */}
                     </div>
                 </div>
             </div>

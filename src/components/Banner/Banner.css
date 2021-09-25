@@ -3,6 +3,7 @@
   height: 454px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position:center;
 }
 .banner .banner__header {
     font-size: 33px;

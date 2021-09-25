@@ -11,7 +11,7 @@
     color: var(--color-white);
     align-items: center;
     justify-content: center;
-    right: -10px;
+    right: 0;
     display: flex;
     position: absolute;
     bottom: -17px;
@@ -33,4 +33,7 @@
 .cart-banner{
     width: 80px;
     height: 80px;
+}
+.cart-banner img{
+    height: 53px;
 }

@@ -6,14 +6,63 @@ import ArrowDown from "../../assets/img/arrow-down.png"
 import MobileFilter from "../../assets/img/mobile-filter.png"
 import Caret from "../../assets/img/caret.png"
 import "./products.css"
-import { useState } from 'react'
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react'
+import { getProducts } from "../../store/actions/product_actions/productActions"
 
-const Filters = () => {
-    const [showFilters, setShowFilters] = useState(false);
+const ProductsWrapper = (props) => {
+    const [featProduct, setFeaturedProduct] = useState(null)
+    const [showFilters, setShowFilters] = useState(false)
+    const [showPriceSort, setShowPriceSort] = useState(false)
+    const [priceSortDir, setDriceSortDir] = useState('select order')
+
+    useEffect(() => {
+        const featuredProduct = props.products.filter((product) => product.featured === true)[0]
+        setFeaturedProduct(featuredProduct)
+    }, [featProduct])
+
 
     const toggleFilters = () => {
         setShowFilters(!showFilters)
     }
+
+    const getPriceSortDir = (e) => {
+        const products = [...props.products]
+        
+        if (e.target.value === 'asc') {
+            products.sort((a, b) => {
+                return a.price > b.price ? 1 : -1
+            })
+        } else if (e.target.value === 'desc') {
+            products.sort((a, b) => {
+                return a.price > b.price ? -1 : 1
+            })
+        }
+        
+        setDriceSortDir(e.target.value)
+
+        props.dispatch(getProducts(products))
+        setShowPriceSort(false)
+    }
+
+    const sortProducts = (type) => {
+
+        const products = [...props.products]
+
+        if (type === 'asc') {
+            products.sort((a, b) => {
+                return a.name > b.name ? 1 : -1
+            })
+        } else {
+            products.sort((a, b) => {
+                return a.name > b.name ? -1 : 1
+            })
+        }
+        
+        props.dispatch(getProducts(products))
+    }
+
+    
     return (
         <>
             <div className="app-width">
@@ -28,20 +77,37 @@ const Filters = () => {
                             </span>
                         </h4>
                     </div>
-                    <div className="m-hide">
+                    <div className="m-hide position-relative">
                         <span className="mr-2">
-                            <img src={ArrowUp} className="" />
-                            <img src={ArrowDown} className="" />
+                            <img src={ArrowUp} className="cursor-pointer" onClick={() => sortProducts('asc')} />
+                            <img src={ArrowDown} className="cursor-pointer" onClick={() => sortProducts('desc')} />
                         </span>
-                        <span className="sort-by light-grey mr-3 ">
-                            Sort By
+                        <span onClick={() => setShowPriceSort(!showPriceSort)} className="cursor-pointer">
+                            <span className="sort-by light-grey mr-3 ">
+                                Sort By
+                            </span>
+                            <span className="black-text mr-2 price-sort fw-500" >
+                                Price
+                            </span>
+                            <span>
+                                <img src={Caret} />
+                            </span>
                         </span>
-                        <span className="black-text mr-2 price-sort fw-500">
-                            Price
-                        </span>
-                        <span>
-                            <img src={Caret} />
-                        </span>
+                        {
+                            showPriceSort ?
+                                (
+                                    <div className="mt-2 price-sort-dir">
+                                        <select value={priceSortDir} onChange={(e) => getPriceSortDir(e)} >
+                                            <option value="select order">Choose order</option>
+                                            <option value="asc">Ascending</option>
+                                            <option value="desc">Descending</option>
+                                        </select>
+                                    </div>
+                                ) 
+                                : null
+                        }
+                        
+                       
                     </div>
                     <div className="mobile-filter">
                         <img src={MobileFilter} onClick={toggleFilters} />
@@ -59,8 +125,12 @@ const Filters = () => {
         </>
     )
 }
-export default Filters
 
+function mapStateToProps(state) {
+    return {
+        products: state.products.products
+    }
+}
 
+export default connect(mapStateToProps)(ProductsWrapper)
 
-    

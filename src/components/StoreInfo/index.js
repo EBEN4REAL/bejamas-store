@@ -3,19 +3,27 @@ import './StoreInfo.css'
 import Prod1 from "../../assets/img/prod1.png"
 import Prod2 from "../../assets/img/prod2.png"
 import Prod3 from "../../assets/img/prod3.png"
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react'
 
-const StoreInfo = () => {
+
+const StoreInfo = (props) => {
+    const [featProduct, setFeaturedProduct] = useState(null)
+
+    useEffect(() => {
+        const featuredProduct = props.products.filter((product) => product.featured === true)[0]
+        setFeaturedProduct(featuredProduct)
+    }, [featProduct])
+
     return (
         <>
             <div className="row justify-content-between app-width mt-4 pb-4 store-info-container">
                 <div className="col-md-6">
-                    <h6 className="font-bold black-text">About the Samurai King Resting</h6>
-                    <p className="grey-text font-bold">Pets</p>
+                    <h6 className="font-bold black-text">About the {featProduct ? featProduct.name : ''}</h6>
+                    <p className="grey-text font-bold">{featProduct ? featProduct.categeory :  ''}</p>
                     <div className="aboutInfo">
                         <p className="grey-text">
-                            So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder <br/><br />
-
-                            text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent? According to McClintock.
+                            {featProduct ? featProduct.details.description : ''} <br />
                         </p>
                     </div>
                 </div>
@@ -37,4 +45,13 @@ const StoreInfo = () => {
 
     )
 }
-export default StoreInfo
+
+
+function mapStateToProps(state) {
+    return {
+        products: state.products.products
+    }
+}
+
+export default connect(mapStateToProps)(StoreInfo)
+

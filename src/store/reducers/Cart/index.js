@@ -8,7 +8,7 @@ const stateObj = {
     cartItems: []
 };
 
-const rootReducer = (state = stateObj,  action) => {
+const CartReducer = (state = stateObj,  action) => {
 
     switch (action.type) {
         case GET_CART:
@@ -26,4 +26,4 @@ const rootReducer = (state = stateObj,  action) => {
             return state;
     }
 }
-export default rootReducer;
+export default CartReducer;

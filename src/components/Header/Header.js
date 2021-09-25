@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Cart from '../cart';
 import { clearCart } from '../../store/actions/CartActions'
 
+
 const Header = (props) => {
     const [cartOpen, setCartOpen] = useState(false);
     
@@ -18,7 +19,6 @@ const Header = (props) => {
     }
 
     const cartItems = props.cart.map((cart, i) => {
-        console.log(cart)
         return (
             <Cart cartItem={cart} key={i} />
         )
@@ -34,10 +34,17 @@ const Header = (props) => {
             <div className="cart position-relative ">
                
                 <div className="cursor-pointer" onClick={() => setCartOpen(!cartOpen)}>
-                    <img src={cartIcon}   />
-                    <div className="cart-count">
-                        {props.cart.length}
-                    </div>
+                    <img src={cartIcon} className="mr-2" />
+                    {
+                        cartItems.length > 0 ?
+                            (
+                                <div className="cart-count">
+                                    {props.cart.length}
+                                </div>
+                            )
+                            :  null
+                    }
+                    
                 </div>
                 {
                     cartOpen ?
@@ -49,11 +56,28 @@ const Header = (props) => {
                                             <img src={Close} className="cursor-pointer" onClick={() => setCartOpen(!cartOpen)} />
                                         </div>
                                     </div>
-                                    <div className="mt-4"></div>
-                                    
-                                    {cartItems}
 
-                                    <div className="bej-border-bottom"></div>
+                                    <div className="mt-4 "></div>
+                                    
+                                    {
+                                        cartItems.length > 0 ?
+                                            cartItems
+                                            
+                                            : (
+                                                <div className="mt-4 text-center">No items added yet</div>
+                                            )
+                                    }
+
+                                    {
+                                        cartItems.length > 0 ?
+                                            (
+                                                <div className="bej-border-bottom"></div>
+                                            )
+
+                                            : null
+                                    }
+
+                                    
                                     
                                     <div className="mt-4">
                                         <button className="bejamas-btn secondary font-bold w-100   " onClick={(e) => removeCart(e)}>CLEAR</button>
