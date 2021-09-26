@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CLEAR_CART } from '../types';
+import { ADD_TO_CART, CLEAR_CART, SHOW_CART } from '../types';
 
 export function addToCart(payload) {
     return {
@@ -13,5 +13,14 @@ export function clearCart() {
         payload: []
     }
 }
+
+export function showCart(payload) {
+    console.log(payload)
+    return {
+        type: SHOW_CART,
+        payload
+    }
+}
+
 
 

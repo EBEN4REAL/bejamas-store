@@ -1,11 +1,13 @@
 import {
     GET_CART,
     ADD_TO_CART,
-    CLEAR_CART
+    CLEAR_CART,
+    SHOW_CART
 } from '../../../store/actions/types';
 
 const stateObj = {
-    cartItems: []
+    cartItems: [],
+    showCart: false
 };
 
 const CartReducer = (state = stateObj,  action) => {
@@ -16,6 +18,13 @@ const CartReducer = (state = stateObj,  action) => {
         
         case CLEAR_CART:
             return { ...state, cartItems: [] };
+        
+        case SHOW_CART:
+            return {
+                ...state,
+                cartItems: [...state.cartItems],
+                showCart: action.payload
+            }
         
         case ADD_TO_CART:
             return { 

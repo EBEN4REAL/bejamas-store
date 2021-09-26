@@ -2,7 +2,6 @@ import React from 'react'
 import "./products.css"
 import Close from "../../assets/img/closebtn.png"
 import { connect } from 'react-redux'
-import { useState, useEffect } from 'react'
 
 
 const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories, updateSelectedPrices, toggleShowFilters, clearFilters, pricesList, updatePricesList }) => {

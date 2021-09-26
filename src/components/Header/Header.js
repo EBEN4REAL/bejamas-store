@@ -6,16 +6,16 @@ import Close from "../../assets/img/closebtn.png"
 import { useState } from 'react'
 import { connect } from 'react-redux';
 import Cart from '../cart';
-import { clearCart } from '../../store/actions/CartActions'
+import { clearCart, showCart } from '../../store/actions/CartActions'
+
 
 
 const Header = (props) => {
-    const [cartOpen, setCartOpen] = useState(false);
     
     const removeCart = (e) => {
         e.preventDefault()
         props.dispatch(clearCart())
-        setCartOpen(!cartOpen)
+        props.dispatch(showCart(!props.showCart))
     }
 
     const cartItems = props.cart.map((cart, i) => {
@@ -29,11 +29,9 @@ const Header = (props) => {
         <header className="header app-width d-flex justify-content-between align-items-center">
             <div className="logo-container">
                 <img src={Logo} alt="Logo" />
-                {cartOpen}
             </div>
             <div className="cart position-relative ">
-               
-                <div className="cursor-pointer" onClick={() => setCartOpen(!cartOpen)}>
+                <div className="cursor-pointer" onClick={() => props.dispatch(showCart(!props.showCart))}>
                     <img src={cartIcon} className="mr-2" alt="cart-icon" />
                     {
                         cartItems.length > 0 ?
@@ -47,13 +45,13 @@ const Header = (props) => {
                     
                 </div>
                 {
-                    cartOpen ?
+                    props.showCart ?
                         (
                             <div className="cart-details p-2 pb-3">
                                 <div className="pb-2">
                                     <div className="row">
                                         <div className="col-md-12 text-right">
-                                            <img alt="cart-dir" src={Close} className="cursor-pointer" onClick={() => setCartOpen(!cartOpen)} />
+                                            <img alt="cart-dir" src={Close} className="cursor-pointer" onClick={() => props.dispatch(showCart(!props.showCart))} />
                                         </div>
                                     </div>
 
@@ -102,7 +100,8 @@ const Header = (props) => {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart.cartItems
+        cart: state.cart.cartItems,
+        showCart: state.cart.showCart
     }
 }
 

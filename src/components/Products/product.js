@@ -1,6 +1,6 @@
 import React from 'react'
 import './products.css'
-import { addToCart } from "../../store/actions/CartActions"
+import { addToCart, showCart } from "../../store/actions/CartActions"
 import { connect } from 'react-redux';
 import { useState } from 'react';
 
@@ -12,6 +12,7 @@ const Product = (props) => {
     const addCartItem = (e, product) => {
         e.preventDefault()
         props.dispatch(addToCart(product))
+        props.dispatch(showCart(true))
     }
 
     return (
@@ -55,7 +56,8 @@ const Product = (props) => {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart.cartItems
+        cart: state.cart.cartItems,
+        showCart: state.cart.showCart
     }
 }
 

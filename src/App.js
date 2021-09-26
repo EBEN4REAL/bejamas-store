@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
+import { useEffect } from 'react'
+import axios from 'axios';
 import Banner from './components/Banner/Banner'
 import Header from './components/Header/Header'
 import StoreInfo from './components/StoreInfo'
 import Products from './components/Products'
-import { useEffect } from 'react'
-import axios from 'axios';
 import { getProducts } from "./store/actions/product_actions/productActions"
 import { connect } from 'react-redux';
 
