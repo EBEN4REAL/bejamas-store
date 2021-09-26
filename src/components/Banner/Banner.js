@@ -1,6 +1,5 @@
 import React from 'react'
 import './Banner.css'
-import BannerImg from "../../assets/img/banner.png"
 import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { addToCart } from '../../store/actions/CartActions'
@@ -25,7 +24,7 @@ const Banner = (props) => {
                     <button className="bejamas-btn primary add-to-cart" onClick={(e) => props.dispatch(addToCart(featProduct))}>ADD TO CART</button>
                 </div>
             </div>
-            <div className="banner app-width d-flex align-items-center position-relative position-relative" style={{ backgroundImage: `url(${featProduct ? featProduct.image.src : BannerImg})` }}>
+            <div className="banner app-width d-flex align-items-center position-relative position-relative" style={{ backgroundImage: `url(${featProduct ? featProduct.image.src: ''})` }}>
                 <div className="banner-caption   font-bold" >Photo of the day</div>
             </div>
         </>
