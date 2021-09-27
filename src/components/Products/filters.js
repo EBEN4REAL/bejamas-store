@@ -7,11 +7,9 @@ import { connect } from 'react-redux'
 const Filters = ({ showFilters, toggleFilters, filterCategories, updateSelectedCategories, updateSelectedPrices, toggleShowFilters, clearFilters, pricesList, updatePricesList }) => {
 
     const getCatFilter = (e) => {
-        console.log(e.target.checked)
         const { checked, value } = e.target
         updateSelectedCategories(checked, value)
     }
-
     
     const catgoryFilters = filterCategories.map((catFilter, index) => {
         return (

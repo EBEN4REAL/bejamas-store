@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 import Cart from '../cart';
 import { clearCart, showCart } from '../../store/actions/CartActions'
 
-
-
 const Header = (props) => {
     
     const removeCart = (e) => {

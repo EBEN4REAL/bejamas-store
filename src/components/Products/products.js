@@ -52,15 +52,29 @@ const Products = ({ products}) => {
     return (
         <>
             <div className="row">
-                {productList}
+                {
+                    productList.length ?
+                        productList
+                        : (
+                            <div class="text-center col-md-12 mt-5">Product list is empty</div>
+                        )
+                }
             </div>
 
-            <Pagination
-                currentPage={currentPage}
-                perPage={perPage}
-                totalPages={totalPages}
-                setCurrentPage={(newPage, mode) => updateCurrentPage(newPage, mode)}
-            />
+            {
+                productList.length > 0 &&
+
+                (
+                    <Pagination
+                        currentPage={currentPage}
+                        perPage={perPage}
+                        totalPages={totalPages}
+                        setCurrentPage={(newPage, mode) => updateCurrentPage(newPage, mode)}
+                    />
+                 )
+            }
+
+            
         </>
 
     )
